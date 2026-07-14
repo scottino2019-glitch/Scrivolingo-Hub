@@ -15,7 +15,7 @@ export default function PublisherView({ setView }: PublisherViewProps) {
         </span>
       </div>
 
-      <header className="max-w-4xl mx-auto mb-10 text-center relative z-10">
+      <header className="max-w-3xl mx-auto mb-10 text-center relative z-10">
         <h1 className="mb-4">
           <div style={{ backgroundColor: '#000000', display: 'inline-block', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden', padding: '24px' }}>
             <pre style={{ fontFamily: 'Courier New, Courier, monospace', fontSize: '9px', lineHeight: '1.1', letterSpacing: '-1.5px', margin: 0, whiteSpace: 'pre', wordWrap: 'normal', fontWeight: 'bold', background: 'none', border: 'none', filter: 'drop-shadow(0px 0px 12px #c1a51a)' }}>
