@@ -14,6 +14,8 @@ export default defineConfig(() => {
         injectRegister: 'inline',
         workbox: {
           globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2}'],
+          navigateFallback: 'index.html',
+          navigateFallbackDenylist: [/^\/pdf\/.*/, /^\/app\/.*/],
           runtimeCaching: [
             {
               urlPattern: /^\/pdf\/.*\.pdf$/,
