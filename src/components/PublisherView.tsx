@@ -15,10 +15,10 @@ export default function PublisherView({ setView }: PublisherViewProps) {
         </span>
       </div>
 
-      <header className="max-w-4xl mx-auto mb-10 text-center relative z-10">
+      <header className="max-w-4xl mx-auto mb-10 text-center relative z-10 px-2">
         <h1 className="mb-4">
-          <div style={{ backgroundColor: '#000000', display: 'inline-block', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden' }} className="p-3 sm:p-6 max-w-full overflow-x-auto">
-            <pre style={{ fontFamily: 'Courier New, Courier, monospace', fontSize: 'clamp(6px, 1.8vw, 12px)', lineHeight: '1.1', letterSpacing: '-2.5px', margin: 0, whiteSpace: 'pre', wordWrap: 'normal', fontWeight: 'bold', background: 'none', border: 'none', filter: 'drop-shadow(0px 0px 12px #c1a51a)' }}>
+          <div style={{ backgroundColor: '#000000', display: 'inline-block', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden' }} className="p-2 sm:p-6 max-w-full overflow-x-auto">
+            <pre style={{ fontFamily: 'Courier New, Courier, monospace', fontSize: 'clamp(3.5px, 1.2vw, 12px)', lineHeight: '1.1', letterSpacing: '-2.5px', margin: 0, whiteSpace: 'pre', wordWrap: 'normal', fontWeight: 'bold', background: 'none', border: 'none', filter: 'drop-shadow(0px 0px 12px #c1a51a)' }}>
               <span style={{ color: '#d7843a' }}>★</span>
               <span style={{ color: '#d7863a' }}>★</span>
               <span style={{ color: '#d7873b' }}>★</span>
@@ -386,54 +386,54 @@ export default function PublisherView({ setView }: PublisherViewProps) {
             </pre>
           </div>
         </h1>
-        <p className="text-[#1630D4] font-bold font-serif-custom">
+        <p className="text-[#1630D4] font-bold font-serif-custom text-sm sm:text-base">
           Clicca su un'app per scaricare o stampare il suo PDF predefinito.
         </p>
       </header>
 
-      <main className="max-w-4xl mx-auto space-y-12 relative z-10">
+      <main className="max-w-4xl mx-auto space-y-12 relative z-10 px-2 sm:px-4">
 
         {/* LIVELLO 1 */}
         <section className="bg-[#e4dcd3] bg-[radial-gradient(#d5cbbd_1px,transparent_1px)] p-4 sm:p-6 rounded-3xl border-2 border-[#E5E5E5] shadow-sm">
-          <div className="bg-[#58CC02] text-white font-black px-6 py-3 rounded-2xl border-b-4 border-[#46A302] inline-block mb-8 font-serif-custom">
+          <div className="bg-[#58CC02] text-white font-black px-4 py-2 sm:px-6 sm:py-3 rounded-2xl border-b-4 border-[#46A302] inline-block mb-6 font-serif-custom text-sm sm:text-base">
             LIVELLO 1 (一级)
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-6 text-center">
             
-            <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/animali.pdf" download="animali.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between py-2">
+              <a href="/pdf/animali.pdf" download="animali.pdf" target="_blank" rel="noreferrer" className="duo-btn w-14 h-14 sm:w-20 sm:h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-xl sm:text-3xl text-white hover:brightness-105">
                  🐼
               </a>
-              <span className="text-3xl sm:text-4xl font-black uppercase tracking-wide text-[#777777] mt-2 font-cursive-custom">动物</span>
+              <span className="text-lg sm:text-3xl font-black uppercase tracking-wide text-[#777777] mt-2 font-cursive-custom">动物</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/famiglia.pdf" download="famiglia.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
-                🏡
+            <div className="flex flex-col items-center justify-between py-2">
+              <a href="/pdf/famiglia.pdf" download="famiglia.pdf" target="_blank" rel="noreferrer" className="duo-btn w-14 h-14 sm:w-20 sm:h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-xl sm:text-3xl text-white hover:brightness-105">
+                 🏡
               </a>
-              <span className="text-3xl sm:text-4xl font-cursive-custom font-black uppercase tracking-wide text-[#777777] mt-2">家庭</span>
+              <span className="text-lg sm:text-3xl font-cursive-custom font-black uppercase tracking-wide text-[#777777] mt-2">家庭</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/famiglia2.pdf" download="famiglia2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between py-2">
+              <a href="/pdf/famiglia2.pdf" download="famiglia2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-14 h-14 sm:w-20 sm:h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-xl sm:text-3xl text-white hover:brightness-105">
                  🏘
               </a>
-              <span className="text-3xl sm:text-4xl font-black uppercase tracking-wide text-[#777777] mt-2 font-cursive-custom">家庭</span>
+              <span className="text-lg sm:text-3xl font-black uppercase tracking-wide text-[#777777] mt-2 font-cursive-custom">家庭</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/natura.pdf" download="natura.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
-                🌿
+            <div className="flex flex-col items-center justify-between py-2">
+              <a href="/pdf/natura.pdf" download="natura.pdf" target="_blank" rel="noreferrer" className="duo-btn w-14 h-14 sm:w-20 sm:h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-xl sm:text-3xl text-white hover:brightness-105">
+                 🌿
               </a>
-              <span className="text-3xl sm:text-4xl font-black font-cursive-custom uppercase tracking-wide text-[#777777] mt-2">自然</span>
+              <span className="text-lg sm:text-3xl font-black font-cursive-custom uppercase tracking-wide text-[#777777] mt-2">自然</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/natura2.pdf" download="natura2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
-                🌲
+            <div className="flex flex-col items-center justify-between py-2">
+              <a href="/pdf/natura2.pdf" download="natura2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-14 h-14 sm:w-20 sm:h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-xl sm:text-3xl text-white hover:brightness-105">
+                 🌲
               </a>
-              <span className="text-3xl sm:text-4xl font-black font-cursive-custom uppercase tracking-wide text-[#777777] mt-2">自然</span>
+              <span className="text-lg sm:text-3xl font-black font-cursive-custom uppercase tracking-wide text-[#777777] mt-2">自然</span>
             </div>
 
           </div>
@@ -441,45 +441,45 @@ export default function PublisherView({ setView }: PublisherViewProps) {
 
         {/* LIVELLO 2 */}
         <section className="bg-white p-4 sm:p-6 rounded-3xl border-2 border-[#E5E5E5] shadow-sm">
-          <div className="bg-[#1CB0F6] text-white font-black px-6 py-3 rounded-2xl border-b-4 border-[#1899D6] inline-block mb-8">
+          <div className="bg-[#1CB0F6] text-white font-black px-4 py-2 sm:px-6 sm:py-3 rounded-2xl border-b-4 border-[#1899D6] inline-block mb-6 text-sm sm:text-base">
             LIVELLO 2: LO STILE
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-6 text-center">
             
-            <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/dialoghi.pdf" download="dialoghi.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between py-2">
+              <a href="/pdf/dialoghi.pdf" download="dialoghi.pdf" target="_blank" rel="noreferrer" className="duo-btn w-14 h-14 sm:w-20 sm:h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-xl sm:text-3xl text-white hover:brightness-105">
                 🎭
               </a>
-              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Dialoghi</span>
+              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Dialoghi</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/editing.pdf" download="editing.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between py-2">
+              <a href="/pdf/editing.pdf" download="editing.pdf" target="_blank" rel="noreferrer" className="duo-btn w-14 h-14 sm:w-20 sm:h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-xl sm:text-3xl text-white hover:brightness-105">
                 ✂️
               </a>
-              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Editing</span>
+              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Editing</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/sensi.pdf" download="sensi.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between py-2">
+              <a href="/pdf/sensi.pdf" download="sensi.pdf" target="_blank" rel="noreferrer" className="duo-btn w-14 h-14 sm:w-20 sm:h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-xl sm:text-3xl text-white hover:brightness-105">
                 👁️
               </a>
-              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Sensi</span>
+              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Sensi</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/metafore.pdf" download="metafore.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between py-2">
+              <a href="/pdf/metafore.pdf" download="metafore.pdf" target="_blank" rel="noreferrer" className="duo-btn w-14 h-14 sm:w-20 sm:h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-xl sm:text-3xl text-white hover:brightness-105">
                 🦄
               </a>
-              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Metafore</span>
+              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Metafore</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/incipit.pdf" download="incipit.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#FF9600] border-b-4 border-[#CC7800] shadow-[0_4px_0_#CC7800] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between py-2">
+              <a href="/pdf/incipit.pdf" download="incipit.pdf" target="_blank" rel="noreferrer" className="duo-btn w-14 h-14 sm:w-20 sm:h-20 bg-[#FF9600] border-b-4 border-[#CC7800] shadow-[0_4px_0_#CC7800] rounded-full flex items-center justify-center text-xl sm:text-3xl text-white hover:brightness-105">
                 👑
               </a>
-              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">L'Incipit</span>
+              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide text-[#777777] mt-2">L'Incipit</span>
             </div>
 
           </div>
