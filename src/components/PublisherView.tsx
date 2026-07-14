@@ -6,7 +6,7 @@ interface PublisherViewProps {
 
 export default function PublisherView({ setView }: PublisherViewProps) {
   return (
-    <div className="bg-gradient-to-r from-yellow-500 to-red-500 text-slate-800 text-[#3C3C3C] font-sans antialiased pb-24 min-h-screen relative p-4 sm:p-6">
+    <div className="bg-gradient-to-r from-yellow-500 to-red-500 text-slate-800 text-[#3C3C3C] font-sans antialiased p-6 pb-32 min-h-screen relative">
       
       {/* WATERMARK BACKGROUND */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 opacity-10">
@@ -15,64 +15,440 @@ export default function PublisherView({ setView }: PublisherViewProps) {
         </span>
       </div>
 
-      <header className="max-w-4xl mx-auto mb-10 text-center relative z-10 px-2">
+      <header className="max-w-4xl mx-auto mb-10 text-center relative z-10">
         <h1 className="mb-4">
-          <div style={{ backgroundColor: '#000000', display: 'inline-block', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden', padding: '12px', maxWidth: '100%' }} className="max-w-full overflow-x-auto"><pre style={{ fontFamily: 'Courier New, Courier, monospace', fontSize: 'clamp(3px, 1.1vw, 8px)', lineHeight: '1', letterSpacing: '-1.5px', margin: 0, whiteSpace: 'pre', wordWrap: 'normal', fontWeight: 'bold', background: 'none', border: 'none', filter: 'drop-shadow(0px 0px 9px #b4a713)' }}><span style={{ color: '#ce2203' }}>★</span><span style={{ color: '#ce2404' }}>★</span><span style={{ color: '#ce2605' }}>★</span><span style={{ color: '#ce2806' }}>★</span><span style={{ color: '#cd2a06' }}>★</span><span style={{ color: '#cd2c07' }}>★</span><span style={{ color: '#cd2e08' }}>★</span><span style={{ color: '#cd3009' }}>★</span><span style={{ color: '#cd320a' }}>★</span><span style={{ color: '#cd340b' }}>★</span><span style={{ color: '#cc360c' }}>★</span><span style={{ color: '#cc380d' }}>★</span><span style={{ color: '#cc3a0d' }}>★</span><span style={{ color: '#cc3c0e' }}>★</span><span style={{ color: '#cc3e0f' }}>★</span><span style={{ color: '#cc4010' }}>★</span><span style={{ color: '#cb4211' }}>★</span><span style={{ color: '#cb4412' }}>★</span><span style={{ color: '#cb4613' }}>★</span><span style={{ color: '#cb4814' }}>★</span><span style={{ color: '#cb4a14' }}>★</span><span style={{ color: '#cb4c15' }}>★</span><span style={{ color: '#cb4e16' }}>★</span><span style={{ color: '#ca5017' }}>★</span><span style={{ color: '#ca5218' }}>★</span><span style={{ color: '#ca5419' }}>★</span><span style={{ color: '#ca561a' }}>★</span><span style={{ color: '#ca581b' }}>★</span><span style={{ color: '#ca5a1b' }}>★</span><span style={{ color: '#c95c1c' }}>★</span><span style={{ color: '#c95e1d' }}>★</span><span style={{ color: '#c9601e' }}>★</span><span style={{ color: '#c9621f' }}>★</span><span style={{ color: '#c96420' }}>★</span><span style={{ color: '#c96621' }}>★</span><span style={{ color: '#c96822' }}>★</span><span style={{ color: '#c86a22' }}>★</span><span style={{ color: '#c86c23' }}>★</span><span style={{ color: '#c86f24' }}>★</span><span style={{ color: '#c87125' }}>★</span><span style={{ color: '#c87326' }}>★</span><span style={{ color: '#c87527' }}>★</span><span style={{ color: '#c77728' }}>★</span><span style={{ color: '#c77929' }}>★</span><span style={{ color: '#c77b29' }}>★</span><span style={{ color: '#c77d2a' }}>★</span><span style={{ color: '#c77f2b' }}>★</span><span style={{ color: '#c7812c' }}>★</span><span style={{ color: '#c6832d' }}>★</span><span style={{ color: '#c6852e' }}>★</span><span style={{ color: '#c6872f' }}>★</span><span style={{ color: '#c6892f' }}>★</span><span style={{ color: '#c68b30' }}>★</span><span style={{ color: '#c68d31' }}>★</span><span style={{ color: '#c68f32' }}>★</span><span style={{ color: '#c59133' }}>★</span><span style={{ color: '#c59334' }}>★</span><span style={{ color: '#c59535' }}>★</span><span style={{ color: '#c59736' }}>★</span><span style={{ color: '#c59936' }}>★</span><span style={{ color: '#c59b37' }}>★</span><span style={{ color: '#c49d38' }}>★</span><span style={{ color: '#c49f39' }}>★</span><span style={{ color: '#c4a13a' }}>★</span><span style={{ color: '#c4a33b' }}>★</span><span style={{ color: '#c4a53c' }}>★</span><span style={{ color: '#c4a73d' }}>★</span><span style={{ color: '#c4a93d' }}>★</span><span style={{ color: '#c3ab3e' }}>★</span><span style={{ color: '#c3ad3f' }}>★</span><span style={{ color: '#c3af40' }}>★</span><span style={{ color: '#c3b141' }}>★</span><span style={{ color: '#c3b342' }}>★</span><span style={{ color: '#c3b543' }}>★</span><span style={{ color: '#c2b744' }}>★</span><span style={{ color: '#c2b944' }}>★</span><span style={{ color: '#c2bb45' }}>★</span>
-<span style={{ color: '#ce2504' }}>★</span><span style={{ color: '#ce2705' }}>⠀</span><span style={{ color: '#cd2906' }}>⣠</span><span style={{ color: '#cd2b07' }}>⣤</span><span style={{ color: '#cd2d08' }}>⣤</span><span style={{ color: '#cd2f09' }}>⣄</span><span style={{ color: '#cd310a' }}>⠀</span><span style={{ color: '#cd330b' }}>⠀</span><span style={{ color: '#cc350b' }}>⠀</span><span style={{ color: '#cc370c' }}>⠀</span><span style={{ color: '#cc3a0d' }}>⠀</span><span style={{ color: '#cc3c0e' }}>⠀</span><span style={{ color: '#cc3e0f' }}>⠀</span><span style={{ color: '#cc4010' }}>⠀</span><span style={{ color: '#cc4211' }}>⠀</span><span style={{ color: '#cb4412' }}>⠀</span><span style={{ color: '#cb4612' }}>⠀</span><span style={{ color: '#cb4813' }}>⣰</span><span style={{ color: '#cb4a14' }}>⣦</span><span style={{ color: '#cb4c15' }}>⠀</span><span style={{ color: '#cb4e16' }}>⠀</span><span style={{ color: '#ca5017' }}>⠀</span><span style={{ color: '#ca5218' }}>⠀</span><span style={{ color: '#ca5419' }}>⠀</span><span style={{ color: '#ca5619' }}>⠀</span><span style={{ color: '#ca581a' }}>⠀</span><span style={{ color: '#ca5a1b' }}>⠀</span><span style={{ color: '#ca5c1c' }}>⠀</span><span style={{ color: '#c95e1d' }}>⠀</span><span style={{ color: '#c9601e' }}>⠀</span><span style={{ color: '#c9621f' }}>⠐</span><span style={{ color: '#c96420' }}>⣶</span><span style={{ color: '#c96620' }}>⡆</span><span style={{ color: '#c96821' }}>⠀</span><span style={{ color: '#c86a22' }}>⣴</span><span style={{ color: '#c86c23' }}>⡄</span><span style={{ color: '#c86e24' }}>⠀</span><span style={{ color: '#c87025' }}>⠀</span><span style={{ color: '#c87226' }}>⠀</span><span style={{ color: '#c87426' }}>⠀</span><span style={{ color: '#c77627' }}>⠀</span><span style={{ color: '#c77828' }}>⠀</span><span style={{ color: '#c77a29' }}>⠀</span><span style={{ color: '#c77c2a' }}>⠀</span><span style={{ color: '#c77e2b' }}>⠀</span><span style={{ color: '#c7802c' }}>⠀</span><span style={{ color: '#c7822d' }}>⠀</span><span style={{ color: '#c6842d' }}>⠀</span><span style={{ color: '#c6862e' }}>⠀</span><span style={{ color: '#c6882f' }}>⠀</span><span style={{ color: '#c68a30' }}>⠀</span><span style={{ color: '#c68c31' }}>⠀</span><span style={{ color: '#c68e32' }}>⠀</span><span style={{ color: '#c59033' }}>⠀</span><span style={{ color: '#c59234' }}>⠀</span><span style={{ color: '#c59434' }}>⠀</span><span style={{ color: '#c59635' }}>⢤</span><span style={{ color: '#c59836' }}>⣤</span><span style={{ color: '#c59a37' }}>⣤</span><span style={{ color: '#c49c38' }}>⠀</span><span style={{ color: '#c49e39' }}>⠠</span><span style={{ color: '#c4a03a' }}>⣤</span><span style={{ color: '#c4a23b' }}>⣤</span><span style={{ color: '#c4a43b' }}>⡤</span><span style={{ color: '#c4a63c' }}>⠀</span><span style={{ color: '#c4a83d' }}>⠀</span><span style={{ color: '#c3aa3e' }}>⠀</span><span style={{ color: '#c3ac3f' }}>⠀</span><span style={{ color: '#c3ae40' }}>⠀</span><span style={{ color: '#c3b041' }}>⠀</span><span style={{ color: '#c3b242' }}>⢲</span><span style={{ color: '#c3b442' }}>⣶</span><span style={{ color: '#c2b643' }}>⠀</span><span style={{ color: '#c2b844' }}>⠀</span><span style={{ color: '#c2ba45' }}>⠀</span><span style={{ color: '#c2bc46' }}>⠀</span><span style={{ color: '#c2be47' }}>★</span>
-<span style={{ color: '#cd2906' }}>★</span><span style={{ color: '#cd2b07' }}>⢸</span><span style={{ color: '#cd2d08' }}>⣿</span><span style={{ color: '#cd2f09' }}>⡀</span><span style={{ color: '#cd3109' }}>⠀</span><span style={{ color: '#cd330a' }}>⠙</span><span style={{ color: '#cd350b' }}>⠀</span><span style={{ color: '#cc370c' }}>⠀</span><span style={{ color: '#cc390d' }}>⢀</span><span style={{ color: '#cc3b0e' }}>⣀</span><span style={{ color: '#cc3d0f' }}>⣀</span><span style={{ color: '#cc3f10' }}>⡀</span><span style={{ color: '#cc4110' }}>⣀</span><span style={{ color: '#cb4311' }}>⣀</span><span style={{ color: '#cb4512' }}>⠀</span><span style={{ color: '#cb4713' }}>⣀</span><span style={{ color: '#cb4914' }}>⡀</span><span style={{ color: '#cb4b15' }}>⣈</span><span style={{ color: '#cb4d16' }}>⣁</span><span style={{ color: '#cb4f17' }}>⢀</span><span style={{ color: '#ca5117' }}>⣀</span><span style={{ color: '#ca5318' }}>⣀</span><span style={{ color: '#ca5519' }}>⠀</span><span style={{ color: '#ca571a' }}>⢀</span><span style={{ color: '#ca591b' }}>⣀</span><span style={{ color: '#ca5b1c' }}>⠀</span><span style={{ color: '#c95d1d' }}>⢀</span><span style={{ color: '#c95f1d' }}>⣀</span><span style={{ color: '#c9611e' }}>⣀</span><span style={{ color: '#c9631f' }}>⠀</span><span style={{ color: '#c96520' }}>⠀</span><span style={{ color: '#c96721' }}>⣿</span><span style={{ color: '#c86922' }}>⡇</span><span style={{ color: '#c86b23' }}>⢀</span><span style={{ color: '#c86d24' }}>⣉</span><span style={{ color: '#c86f24' }}>⡁</span><span style={{ color: '#c87125' }}>⢀</span><span style={{ color: '#c87326' }}>⣀</span><span style={{ color: '#c87527' }}>⡀</span><span style={{ color: '#c77728' }}>⣀</span><span style={{ color: '#c77929' }}>⣀</span><span style={{ color: '#c77b2a' }}>⠀</span><span style={{ color: '#c77d2b' }}>⠀</span><span style={{ color: '#c77f2b' }}>⢀</span><span style={{ color: '#c7812c' }}>⣀</span><span style={{ color: '#c6832d' }}>⣀</span><span style={{ color: '#c6852e' }}>⣠</span><span style={{ color: '#c6872f' }}>⠀</span><span style={{ color: '#c68930' }}>⠀</span><span style={{ color: '#c68b31' }}>⣀</span><span style={{ color: '#c68d32' }}>⣀</span><span style={{ color: '#c58f32' }}>⡀</span><span style={{ color: '#c59133' }}>⠀</span><span style={{ color: '#c59334' }}>⠀</span><span style={{ color: '#c59535' }}>⠀</span><span style={{ color: '#c59736' }}>⠀</span><span style={{ color: '#c59937' }}>⢸</span><span style={{ color: '#c59c38' }}>⣿</span><span style={{ color: '#c49e39' }}>⡇</span><span style={{ color: '#c4a039' }}>⠀</span><span style={{ color: '#c4a23a' }}>⠀</span><span style={{ color: '#c4a43b' }}>⣿</span><span style={{ color: '#c4a63c' }}>⣿</span><span style={{ color: '#c4a83d' }}>⠀</span><span style={{ color: '#c3aa3e' }}>⣀</span><span style={{ color: '#c3ac3f' }}>⣀</span><span style={{ color: '#c3ae40' }}>⠀</span><span style={{ color: '#c3b040' }}>⢀</span><span style={{ color: '#c3b241' }}>⣀</span><span style={{ color: '#c3b442' }}>⠀</span><span style={{ color: '#c3b643' }}>⢸</span><span style={{ color: '#c2b844' }}>⣿</span><span style={{ color: '#c2ba45' }}>⣀</span><span style={{ color: '#c2bc46' }}>⡀</span><span style={{ color: '#c2be46' }}>⠀</span><span style={{ color: '#c2c047' }}>★</span>
-<span style={{ color: '#cd2c07' }}>★</span><span style={{ color: '#cd2e08' }}>⠈</span><span style={{ color: '#cd3009' }}>⠻</span><span style={{ color: '#cd320a' }}>⣿</span><span style={{ color: '#cd340b' }}>⣷</span><span style={{ color: '#cc360c' }}>⣦</span><span style={{ color: '#cc380d' }}>⡀</span><span style={{ color: '#cc3a0d' }}>⢰</span><span style={{ color: '#cc3c0e' }}>⣿</span><span style={{ color: '#cc3e0f' }}>⠁</span><span style={{ color: '#cc4010' }}>⠈</span><span style={{ color: '#cb4211' }}>⠇</span><span style={{ color: '#cb4412' }}>⢸</span><span style={{ color: '#cb4613' }}>⣿</span><span style={{ color: '#cb4814' }}>⠞</span><span style={{ color: '#cb4a14' }}>⠛</span><span style={{ color: '#cb4c15' }}>⠃</span><span style={{ color: '#cb4e16' }}>⣿</span><span style={{ color: '#ca5017' }}>⣿</span><span style={{ color: '#ca5218' }}>⠀</span><span style={{ color: '#ca5419' }}>⢿</span><span style={{ color: '#ca561a' }}>⣧</span><span style={{ color: '#ca581b' }}>⠀</span><span style={{ color: '#ca5a1b' }}>⣸</span><span style={{ color: '#c95c1c' }}>⠃</span><span style={{ color: '#c95e1d' }}>⣸</span><span style={{ color: '#c9601e' }}>⣿</span><span style={{ color: '#c9621f' }}>⠁</span><span style={{ color: '#c96420' }}>⣿</span><span style={{ color: '#c96721' }}>⣧</span><span style={{ color: '#c96922' }}>⠀</span><span style={{ color: '#c86b22' }}>⣿</span><span style={{ color: '#c86d23' }}>⡇</span><span style={{ color: '#c86f24' }}>⠀</span><span style={{ color: '#c87125' }}>⣿</span><span style={{ color: '#c87326' }}>⡇</span><span style={{ color: '#c87527' }}>⠀</span><span style={{ color: '#c77728' }}>⣿</span><span style={{ color: '#c77929' }}>⡏</span><span style={{ color: '#c77b29' }}>⠉</span><span style={{ color: '#c77d2a' }}>⣿</span><span style={{ color: '#c77f2b' }}>⡇</span><span style={{ color: '#c7812c' }}>⢰</span><span style={{ color: '#c6832d' }}>⣿</span><span style={{ color: '#c6852e' }}>⠁</span><span style={{ color: '#c6872f' }}>⢹</span><span style={{ color: '#c68930' }}>⣿</span><span style={{ color: '#c68b30' }}>⠀</span><span style={{ color: '#c68d31' }}>⣾</span><span style={{ color: '#c68f32' }}>⡏</span><span style={{ color: '#c59133' }}>⠈</span><span style={{ color: '#c59334' }}>⣿</span><span style={{ color: '#c59535' }}>⡆</span><span style={{ color: '#c59736' }}>⠀</span><span style={{ color: '#c59936' }}>⠀</span><span style={{ color: '#c59b37' }}>⠀</span><span style={{ color: '#c49d38' }}>⢸</span><span style={{ color: '#c49f39' }}>⣿</span><span style={{ color: '#c4a13a' }}>⡷</span><span style={{ color: '#c4a33b' }}>⠶</span><span style={{ color: '#c4a53c' }}>⠶</span><span style={{ color: '#c4a73d' }}>⣿</span><span style={{ color: '#c4a93d' }}>⣿</span><span style={{ color: '#c3ab3e' }}>⠀</span><span style={{ color: '#c3ad3f' }}>⢸</span><span style={{ color: '#c3af40' }}>⣿</span><span style={{ color: '#c3b141' }}>⠀</span><span style={{ color: '#c3b342' }}>⢸</span><span style={{ color: '#c3b543' }}>⣿</span><span style={{ color: '#c2b744' }}>⡇</span><span style={{ color: '#c2b944' }}>⢸</span><span style={{ color: '#c2bb45' }}>⣿</span><span style={{ color: '#c2bd46' }}>⠁</span><span style={{ color: '#c2bf47' }}>⠈</span><span style={{ color: '#c2c148' }}>⣿</span><span style={{ color: '#c1c349' }}>⡆</span><span style={{ color: '#c1c54a' }}>★</span>
-<span style={{ color: '#cd2f09' }}>★</span><span style={{ color: '#cd320a' }}>⢠</span><span style={{ color: '#cd340b' }}>⠀</span><span style={{ color: '#cc360b' }}>⠀</span><span style={{ color: '#cc380c' }}>⠈</span><span style={{ color: '#cc3a0d' }}>⣿</span><span style={{ color: '#cc3c0e' }}>⡇</span><span style={{ color: '#cc3e0f' }}>⢻</span><span style={{ color: '#cc4010' }}>⣿</span><span style={{ color: '#cc4211' }}>⠀</span><span style={{ color: '#cb4412' }}>⠀</span><span style={{ color: '#cb4612' }}>⠀</span><span style={{ color: '#cb4813' }}>⢸</span><span style={{ color: '#cb4a14' }}>⣿</span><span style={{ color: '#cb4c15' }}>⠀</span><span style={{ color: '#cb4e16' }}>⠀</span><span style={{ color: '#ca5017' }}>⠀</span><span style={{ color: '#ca5218' }}>⣿</span><span style={{ color: '#ca5419' }}>⣿</span><span style={{ color: '#ca5619' }}>⠀</span><span style={{ color: '#ca581a' }}>⠈</span><span style={{ color: '#ca5a1b' }}>⣿</span><span style={{ color: '#ca5c1c' }}>⣧</span><span style={{ color: '#c95e1d' }}>⠏</span><span style={{ color: '#c9601e' }}>⠀</span><span style={{ color: '#c9621f' }}>⢿</span><span style={{ color: '#c96420' }}>⣿</span><span style={{ color: '#c96620' }}>⠀</span><span style={{ color: '#c96821' }}>⣿</span><span style={{ color: '#c86a22' }}>⡿</span><span style={{ color: '#c86c23' }}>⠀</span><span style={{ color: '#c86e24' }}>⣿</span><span style={{ color: '#c87025' }}>⡇</span><span style={{ color: '#c87226' }}>⠀</span><span style={{ color: '#c87427' }}>⣿</span><span style={{ color: '#c77627' }}>⡇</span><span style={{ color: '#c77828' }}>⠀</span><span style={{ color: '#c77a29' }}>⣿</span><span style={{ color: '#c77c2a' }}>⡇</span><span style={{ color: '#c77e2b' }}>⠀</span><span style={{ color: '#c7802c' }}>⣿</span><span style={{ color: '#c7822d' }}>⡇</span><span style={{ color: '#c6842d' }}>⠈</span><span style={{ color: '#c6862e' }}>⣻</span><span style={{ color: '#c6882f' }}>⠦</span><span style={{ color: '#c68a30' }}>⠾</span><span style={{ color: '#c68c31' }}>⠋</span><span style={{ color: '#c68e32' }}>⠀</span><span style={{ color: '#c59033' }}>⣿</span><span style={{ color: '#c59234' }}>⡇</span><span style={{ color: '#c59434' }}>⠀</span><span style={{ color: '#c59635' }}>⣿</span><span style={{ color: '#c59836' }}>⡇</span><span style={{ color: '#c59a37' }}>⠀</span><span style={{ color: '#c49c38' }}>⠀</span><span style={{ color: '#c49e39' }}>⠀</span><span style={{ color: '#c4a03a' }}>⢸</span><span style={{ color: '#c4a23b' }}>⣿</span><span style={{ color: '#c4a43b' }}>⡇</span><span style={{ color: '#c4a63c' }}>⠀</span><span style={{ color: '#c4a83d' }}>⠀</span><span style={{ color: '#c3aa3e' }}>⣿</span><span style={{ color: '#c3ac3f' }}>⣿</span><span style={{ color: '#c3ae40' }}>⠀</span><span style={{ color: '#c3b041' }}>⢸</span><span style={{ color: '#c3b242' }}>⣿</span><span style={{ color: '#c3b442' }}>⡀</span><span style={{ color: '#c2b643' }}>⢸</span><span style={{ color: '#c2b844' }}>⣿</span><span style={{ color: '#c2ba45' }}>⡇</span><span style={{ color: '#c2bc46' }}>⢸</span><span style={{ color: '#c2be47' }}>⣿</span><span style={{ color: '#c2c048' }}>⠀</span><span style={{ color: '#c2c249' }}>⠀</span><span style={{ color: '#c1c449' }}>⣿</span><span style={{ color: '#c1c64a' }}>⡇</span><span style={{ color: '#c1c94b' }}>★</span>
-<span style={{ color: '#cd330a' }}>★</span><span style={{ color: '#cd350b' }}>⠘</span><span style={{ color: '#cc370c' }}>⠷</span><span style={{ color: '#cc390d' }}>⠶</span><span style={{ color: '#cc3b0e' }}>⠶</span><span style={{ color: '#cc3d0f' }}>⠛</span><span style={{ color: '#cc3f10' }}>⠀</span><span style={{ color: '#cc4110' }}>⠈</span><span style={{ color: '#cb4311' }}>⠻</span><span style={{ color: '#cb4512' }}>⠷</span><span style={{ color: '#cb4713' }}>⠶</span><span style={{ color: '#cb4914' }}>⠂</span><span style={{ color: '#cb4b15' }}>⠼</span><span style={{ color: '#cb4d16' }}>⠿</span><span style={{ color: '#ca4f17' }}>⠦</span><span style={{ color: '#ca5117' }}>⠀</span><span style={{ color: '#ca5318' }}>⠀</span><span style={{ color: '#ca5519' }}>⠿</span><span style={{ color: '#ca571a' }}>⠿</span><span style={{ color: '#ca591b' }}>⠀</span><span style={{ color: '#ca5b1c' }}>⠀</span><span style={{ color: '#c95d1d' }}>⠘</span><span style={{ color: '#c95f1e' }}>⠟</span><span style={{ color: '#c9611e' }}>⠀</span><span style={{ color: '#c9631f' }}>⠀</span><span style={{ color: '#c96520' }}>⠈</span><span style={{ color: '#c96721' }}>⠻</span><span style={{ color: '#c86922' }}>⠶</span><span style={{ color: '#c86b23' }}>⠟</span><span style={{ color: '#c86d24' }}>⠁</span><span style={{ color: '#c86f24' }}>⠰</span><span style={{ color: '#c87125' }}>⠿</span><span style={{ color: '#c87326' }}>⠷</span><span style={{ color: '#c87527' }}>⠰</span><span style={{ color: '#c77728' }}>⠿</span><span style={{ color: '#c77929' }}>⠷</span><span style={{ color: '#c77b2a' }}>⠰</span><span style={{ color: '#c77d2b' }}>⠿</span><span style={{ color: '#c77f2b' }}>⠧</span><span style={{ color: '#c7812c' }}>⠠</span><span style={{ color: '#c6832d' }}>⠿</span><span style={{ color: '#c6852e' }}>⠷</span><span style={{ color: '#c6872f' }}>⠘</span><span style={{ color: '#c68930' }}>⣿</span><span style={{ color: '#c68b31' }}>⣷</span><span style={{ color: '#c68d32' }}>⣶</span><span style={{ color: '#c58f32' }}>⣶</span><span style={{ color: '#c59133' }}>⡄</span><span style={{ color: '#c59434' }}>⠘</span><span style={{ color: '#c59635' }}>⠷</span><span style={{ color: '#c59836' }}>⠶</span><span style={{ color: '#c59a37' }}>⠟</span><span style={{ color: '#c59c38' }}>⠁</span><span style={{ color: '#c49e39' }}>⠀</span><span style={{ color: '#c4a039' }}>⠀</span><span style={{ color: '#c4a23a' }}>⠀</span><span style={{ color: '#c4a43b' }}>⠾</span><span style={{ color: '#c4a63c' }}>⠿</span><span style={{ color: '#c4a83d' }}>⠷</span><span style={{ color: '#c3aa3e' }}>⠀</span><span style={{ color: '#c3ac3f' }}>⠰</span><span style={{ color: '#c3ae40' }}>⠿</span><span style={{ color: '#c3b040' }}>⠿</span><span style={{ color: '#c3b241' }}>⠦</span><span style={{ color: '#c3b442' }}>⠈</span><span style={{ color: '#c3b643' }}>⠿</span><span style={{ color: '#c2b844' }}>⠷</span><span style={{ color: '#c2ba45' }}>⠚</span><span style={{ color: '#c2bc46' }}>⠿</span><span style={{ color: '#c2be47' }}>⠇</span><span style={{ color: '#c2c047' }}>⠘</span><span style={{ color: '#c2c248' }}>⠻</span><span style={{ color: '#c1c449' }}>⠶</span><span style={{ color: '#c1c64a' }}>⠾</span><span style={{ color: '#c1c84b' }}>⠛</span><span style={{ color: '#c1ca4c' }}>⠀</span><span style={{ color: '#c1cc4d' }}>★</span>
-<span style={{ color: '#cc360c' }}>★</span><span style={{ color: '#cc380d' }}>⠀</span><span style={{ color: '#cc3a0e' }}>⠀</span><span style={{ color: '#cc3c0e' }}>⠀</span><span style={{ color: '#cc3e0f' }}>⠀</span><span style={{ color: '#cc4010' }}>⠀</span><span style={{ color: '#cb4211' }}>⠀</span><span style={{ color: '#cb4412' }}>⠀</span><span style={{ color: '#cb4613' }}>⠀</span><span style={{ color: '#cb4814' }}>⠀</span><span style={{ color: '#cb4a14' }}>⠀</span><span style={{ color: '#cb4c15' }}>⠀</span><span style={{ color: '#cb4e16' }}>⠀</span><span style={{ color: '#ca5017' }}>⠀</span><span style={{ color: '#ca5218' }}>⠀</span><span style={{ color: '#ca5419' }}>⠀</span><span style={{ color: '#ca561a' }}>⠀</span><span style={{ color: '#ca581b' }}>⠀</span><span style={{ color: '#ca5a1b' }}>⠀</span><span style={{ color: '#c95c1c' }}>⠀</span><span style={{ color: '#c95f1d' }}>⠀</span><span style={{ color: '#c9611e' }}>⠀</span><span style={{ color: '#c9631f' }}>⠀</span><span style={{ color: '#c96520' }}>⠀</span><span style={{ color: '#c96721' }}>⠀</span><span style={{ color: '#c96922' }}>⠀</span><span style={{ color: '#c86b22' }}>⠀</span><span style={{ color: '#c86d23' }}>⠀</span><span style={{ color: '#c86f24' }}>⠀</span><span style={{ color: '#c87125' }}>⠀</span><span style={{ color: '#c87326' }}>⠀</span><span style={{ color: '#c87527' }}>⠀</span><span style={{ color: '#c77728' }}>⠀</span><span style={{ color: '#c77929' }}>⠀</span><span style={{ color: '#c77b29' }}>⠀</span><span style={{ color: '#c77d2a' }}>⠀</span><span style={{ color: '#c77f2b' }}>⠀</span><span style={{ color: '#c7812c' }}>⠀</span><span style={{ color: '#c6832d' }}>⠀</span><span style={{ color: '#c6852e' }}>⠀</span><span style={{ color: '#c6872f' }}>⠀</span><span style={{ color: '#c68930' }}>⠀</span><span style={{ color: '#c68b30' }}>⠸</span><span style={{ color: '#c68d31' }}>⣧</span><span style={{ color: '#c68f32' }}>⣀</span><span style={{ color: '#c59133' }}>⣠</span><span style={{ color: '#c59334' }}>⡿</span><span style={{ color: '#c59535' }}>⠃</span><span style={{ color: '#c59736' }}>⠀</span><span style={{ color: '#c59937' }}>⠀</span><span style={{ color: '#c59b37' }}>⠀</span><span style={{ color: '#c49d38' }}>⠀</span><span style={{ color: '#c49f39' }}>⠀</span><span style={{ color: '#c4a13a' }}>⠀</span><span style={{ color: '#c4a33b' }}>⠀</span><span style={{ color: '#c4a53c' }}>⠀</span><span style={{ color: '#c4a73d' }}>⠀</span><span style={{ color: '#c4a93e' }}>⠀</span><span style={{ color: '#c3ab3e' }}>⠀</span><span style={{ color: '#c3ad3f' }}>⠀</span><span style={{ color: '#c3af40' }}>⠀</span><span style={{ color: '#c3b141' }}>⠀</span><span style={{ color: '#c3b342' }}>⠀</span><span style={{ color: '#c3b543' }}>⠀</span><span style={{ color: '#c2b744' }}>⠀</span><span style={{ color: '#c2b944' }}>⠀</span><span style={{ color: '#c2bb45' }}>⠀</span><span style={{ color: '#c2bd46' }}>⠀</span><span style={{ color: '#c2bf47' }}>⠀</span><span style={{ color: '#c2c148' }}>⠀</span><span style={{ color: '#c1c349' }}>⠀</span><span style={{ color: '#c1c54a' }}>⠀</span><span style={{ color: '#c1c74b' }}>⠀</span><span style={{ color: '#c1c94b' }}>⠀</span><span style={{ color: '#c1cb4c' }}>⠀</span><span style={{ color: '#c1cd4d' }}>⠀</span><span style={{ color: '#c1cf4e' }}>★</span>
-<span style={{ color: '#cc3a0d' }}>★</span><span style={{ color: '#cc3e0f' }}>⠀</span><span style={{ color: '#cc4010' }}>⠀</span><span style={{ color: '#cc4211' }}>⠀</span><span style={{ color: '#cb4412' }}>⠀</span><span style={{ color: '#cb4612' }}>⠀</span><span style={{ color: '#cb4813' }}>⠀</span><span style={{ color: '#cb4a14' }}>⠀</span><span style={{ color: '#cb4c15' }}>⠀</span><span style={{ color: '#cb4e16' }}>⠀</span><span style={{ color: '#ca5017' }}>⠀</span><span style={{ color: '#ca5218' }}>⠀</span><span style={{ color: '#ca5419' }}>⠀</span><span style={{ color: '#ca5619' }}>⠀</span><span style={{ color: '#ca581a' }}>⠀</span><span style={{ color: '#ca5a1b' }}>⠀</span><span style={{ color: '#ca5c1c' }}>⠀</span><span style={{ color: '#c95e1d' }}>⠀</span><span style={{ color: '#c9601e' }}>⠀</span><span style={{ color: '#c9621f' }}>⠀</span><span style={{ color: '#c96420' }}>⠀</span><span style={{ color: '#c96620' }}>⠀</span><span style={{ color: '#c96821' }}>⠀</span><span style={{ color: '#c86a22' }}>⠀</span><span style={{ color: '#c86c23' }}>⠀</span><span style={{ color: '#c86e24' }}>⠀</span><span style={{ color: '#c87025' }}>⠀</span><span style={{ color: '#c87226' }}>⠀</span><span style={{ color: '#c87427' }}>⠀</span><span style={{ color: '#c77627' }}>⠀</span><span style={{ color: '#c77828' }}>⠀</span><span style={{ color: '#c77a29' }}>⠀</span><span style={{ color: '#c77c2a' }}>⠀</span><span style={{ color: '#c77e2b' }}>⠀</span><span style={{ color: '#c7802c' }}>⠀</span><span style={{ color: '#c7822d' }}>⠀</span><span style={{ color: '#c6842e' }}>⠀</span><span style={{ color: '#c6862e' }}>⠀</span><span style={{ color: '#c6882f' }}>⠀</span><span style={{ color: '#c68a30' }}>⠀</span><span style={{ color: '#c68c31' }}>⠀</span><span style={{ color: '#c68e32' }}>⠀</span><span style={{ color: '#c59033' }}>⠀</span><span style={{ color: '#c59234' }}>⠀</span><span style={{ color: '#c59434' }}>⠀</span><span style={{ color: '#c59635' }}>⠀</span><span style={{ color: '#c59836' }}>⠀</span><span style={{ color: '#c59a37' }}>⠀</span><span style={{ color: '#c49c38' }}>⠀</span><span style={{ color: '#c49e39' }}>⠀</span><span style={{ color: '#c4a03a' }}>⠀</span><span style={{ color: '#c4a23b' }}>⠀</span><span style={{ color: '#c4a43b' }}>⠀</span><span style={{ color: '#c4a63c' }}>⠀</span><span style={{ color: '#c4a83d' }}>⠀</span><span style={{ color: '#c3aa3e' }}>⠀</span><span style={{ color: '#c3ac3f' }}>⠀</span><span style={{ color: '#c3ae40' }}>⠀</span><span style={{ color: '#c3b041' }}>⠀</span><span style={{ color: '#c3b242' }}>⠀</span><span style={{ color: '#c3b442' }}>⠀</span><span style={{ color: '#c2b643' }}>⠀</span><span style={{ color: '#c2b844' }}>⠀</span><span style={{ color: '#c2ba45' }}>⠀</span><span style={{ color: '#c2bc46' }}>⠀</span><span style={{ color: '#c2be47' }}>⠀</span><span style={{ color: '#c2c148' }}>⠀</span><span style={{ color: '#c2c349' }}>⠀</span><span style={{ color: '#c1c549' }}>⠀</span><span style={{ color: '#c1c74a' }}>⠀</span><span style={{ color: '#c1c94b' }}>⠀</span><span style={{ color: '#c1cb4c' }}>⠀</span><span style={{ color: '#c1cd4d' }}>⠀</span><span style={{ color: '#c1cf4e' }}>⠀</span><span style={{ color: '#c0d14f' }}>⠀</span><span style={{ color: '#c0d350' }}>★</span>
-<span style={{ color: '#cc3d0f' }}>★</span><span style={{ color: '#cc3f10' }}>★</span><span style={{ color: '#cc4110' }}>★</span><span style={{ color: '#cb4311' }}>★</span><span style={{ color: '#cb4512' }}>★</span><span style={{ color: '#cb4713' }}>★</span><span style={{ color: '#cb4914' }}>★</span><span style={{ color: '#cb4b15' }}>★</span><span style={{ color: '#cb4d16' }}>★</span><span style={{ color: '#ca4f17' }}>★</span><span style={{ color: '#ca5117' }}>★</span><span style={{ color: '#ca5318' }}>★</span><span style={{ color: '#ca5519' }}>★</span><span style={{ color: '#ca571a' }}>★</span><span style={{ color: '#ca591b' }}>★</span><span style={{ color: '#ca5b1c' }}>★</span><span style={{ color: '#c95d1d' }}>★</span><span style={{ color: '#c95f1e' }}>★</span><span style={{ color: '#c9611e' }}>★</span><span style={{ color: '#c9631f' }}>★</span><span style={{ color: '#c96520' }}>★</span><span style={{ color: '#c96721' }}>★</span><span style={{ color: '#c86922' }}>★</span><span style={{ color: '#c86b23' }}>★</span><span style={{ color: '#c86d24' }}>★</span><span style={{ color: '#c86f25' }}>★</span><span style={{ color: '#c87125' }}>★</span><span style={{ color: '#c87326' }}>★</span><span style={{ color: '#c87527' }}>★</span><span style={{ color: '#c77728' }}>★</span><span style={{ color: '#c77929' }}>★</span><span style={{ color: '#c77b2a' }}>★</span><span style={{ color: '#c77d2b' }}>★</span><span style={{ color: '#c77f2b' }}>★</span><span style={{ color: '#c7812c' }}>★</span><span style={{ color: '#c6832d' }}>★</span><span style={{ color: '#c6852e' }}>★</span><span style={{ color: '#c6872f' }}>★</span><span style={{ color: '#c68930' }}>★</span><span style={{ color: '#c68c31' }}>★</span><span style={{ color: '#c68e32' }}>★</span><span style={{ color: '#c59032' }}>★</span><span style={{ color: '#c59233' }}>★</span><span style={{ color: '#c59434' }}>★</span><span style={{ color: '#c59635' }}>★</span><span style={{ color: '#c59836' }}>★</span><span style={{ color: '#c59a37' }}>★</span><span style={{ color: '#c59c38' }}>★</span><span style={{ color: '#c49e39' }}>★</span><span style={{ color: '#c4a039' }}>★</span><span style={{ color: '#c4a23a' }}>★</span><span style={{ color: '#c4a43b' }}>★</span><span style={{ color: '#c4a63c' }}>★</span><span style={{ color: '#c4a83d' }}>★</span><span style={{ color: '#c3aa3e' }}>★</span><span style={{ color: '#c3ac3f' }}>★</span><span style={{ color: '#c3ae40' }}>★</span><span style={{ color: '#c3b040' }}>★</span><span style={{ color: '#c3b241' }}>★</span><span style={{ color: '#c3b442' }}>★</span><span style={{ color: '#c3b643' }}>★</span><span style={{ color: '#c2b844' }}>★</span><span style={{ color: '#c2ba45' }}>★</span><span style={{ color: '#c2bc46' }}>★</span><span style={{ color: '#c2be47' }}>★</span><span style={{ color: '#c2c047' }}>★</span><span style={{ color: '#c2c248' }}>★</span><span style={{ color: '#c1c449' }}>★</span><span style={{ color: '#c1c64a' }}>★</span><span style={{ color: '#c1c84b' }}>★</span><span style={{ color: '#c1ca4c' }}>★</span><span style={{ color: '#c1cc4d' }}>★</span><span style={{ color: '#c1ce4e' }}>★</span><span style={{ color: '#c0d04e' }}>★</span><span style={{ color: '#c0d24f' }}>★</span><span style={{ color: '#c0d450' }}>★</span><span style={{ color: '#c0d651' }}>★</span></pre></div>
+          <svg className="w-full max-w-lg mx-auto" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1090 180">
+            <defs>
+              <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+                <feDropShadow dx="0" dy="8" stdDeviation="6" floodColor="#000" floodOpacity="0.35"/>
+              </filter>
+            
+              <linearGradient id="grad-ext-0-S" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#e91e63" />
+                <stop offset="100%" stopColor="#9c27b0" />
+              </linearGradient>
+              <clipPath id="clip-ext-0-S">
+                <path d="M82,25 Q70,12 50,12 Q25,12 25,32 Q25,48 50,52 Q72,55 72,70 Q72,82 50,82 Q28,82 20,68 H42 Q45,70 52,70 Q60,70 60,60 Q60,53 45,50 Q20,44 20,28 Q20,10 50,10 Q80,10 85,25 Z" />
+              </clipPath>
+            
+              <linearGradient id="grad-ext-1-C" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#7b2ff7" />
+                <stop offset="100%" stopColor="#f107a3" />
+              </linearGradient>
+              <clipPath id="clip-ext-1-C">
+                <path d="M82,26 Q55,8 28,30 Q10,52 28,78 Q55,96 82,82 Q72,66 54,66 Q38,56 42,42 Q48,34 68,34 Z" />
+              </clipPath>
+            
+              <linearGradient id="grad-ext-2-R" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#ff3366" />
+                <stop offset="100%" stopColor="#ff00cc" />
+              </linearGradient>
+              <clipPath id="clip-ext-2-R">
+                <path d="M18,10 H65 Q85,10 85,38 Q80,55 58,58 L85,90 H60 L38,62 H40 V90 H18 Z M40,24 H52 Q62,24 62,38 Q62,45 48,45 H40 Z" />
+              </clipPath>
+            
+              <linearGradient id="grad-ext-3-I" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#a6ff00" />
+                <stop offset="100%" stopColor="#00e676" />
+              </linearGradient>
+              <clipPath id="clip-ext-3-I">
+                <path d="M30,10 H70 V26 H55 V74 H70 V90 H30 V74 H45 V26 H30 Z" />
+              </clipPath>
+            
+              <linearGradient id="grad-ext-4-V" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#ff9000" />
+                <stop offset="100%" stopColor="#ff3d00" />
+              </linearGradient>
+              <clipPath id="clip-ext-4-V">
+                <path d="M12,10 H36 L50,66 L64,10 H88 L64,90 H36 Z" />
+              </clipPath>
+            
+              <linearGradient id="grad-ext-5-O" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#e91e63" />
+                <stop offset="100%" stopColor="#9c27b0" />
+              </linearGradient>
+              <clipPath id="clip-ext-5-O">
+                <path d="M50,10 Q85,10 85,50 Q85,90 50,90 Q15,90 15,50 Q15,10 50,10 Z M50,30 Q63,30 63,50 Q63,70 50,70 Q37,70 37,50 Q37,30 50,30 Z" />
+              </clipPath>
+            
+              <linearGradient id="grad-ext-6-L" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#ff416c" />
+                <stop offset="100%" stopColor="#ff4b2b" />
+              </linearGradient>
+              <clipPath id="clip-ext-6-L">
+                <path d="M20,10 H42 V70 H80 V90 H20 Z" />
+              </clipPath>
+            
+              <linearGradient id="grad-ext-7-I" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#fdd835" />
+                <stop offset="100%" stopColor="#f57c00" />
+              </linearGradient>
+              <clipPath id="clip-ext-7-I">
+                <path d="M30,10 H70 V26 H55 V74 H70 V90 H30 V74 H45 V26 H30 Z" />
+              </clipPath>
+            
+              <linearGradient id="grad-ext-8-N" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#ffeb3b" />
+                <stop offset="100%" stopColor="#4caf50" />
+              </linearGradient>
+              <clipPath id="clip-ext-8-N">
+                <path d="M15,10 H38 L68,60 V10 H90 V90 H68 L38,38 V90 H15 Z" />
+              </clipPath>
+            
+              <linearGradient id="grad-ext-9-G" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#00f2fe" />
+                <stop offset="100%" stopColor="#4facfe" />
+              </linearGradient>
+              <clipPath id="clip-ext-9-G">
+                <path d="M82,24 Q55,8 28,30 Q10,52 28,78 Q55,96 82,84 V52 H54 V70 H70 V75 Q55,83 44,70 Q34,54 44,38 Q55,25 72,34 Z" />
+              </clipPath>
+            
+              <linearGradient id="grad-ext-10-O" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#ff3366" />
+                <stop offset="100%" stopColor="#ff00cc" />
+              </linearGradient>
+              <clipPath id="clip-ext-10-O">
+                <path d="M50,10 Q85,10 85,50 Q85,90 50,90 Q15,90 15,50 Q15,10 50,10 Z M50,30 Q63,30 63,50 Q63,70 50,70 Q37,70 37,50 Q37,30 50,30 Z" />
+              </clipPath>
+            </defs>
+            <rect width="100%" height="100%" fill="none" />
+            
+            <g filter="url(#shadow)">
+              <g transform="translate(40, 48) rotate(-10, 50, 50) scale(1)">
+                <path d="M12,40 C-8,45 -12,20 -2,12 C2,22 8,30 12,40 Z M12,40 C-2,46 -4,55 0,60 C4,52 8,46 12,40 Z" fill="#2A1A4A" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M88,40 C108,45 112,20 102,12 C98,22 92,30 88,40 Z M88,40 C102,46 104,55 100,60 C96,52 92,46 88,40 Z" fill="#2A1A4A" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M25,12 C18,2 8,10 12,25 C16,20 22,17 25,12 Z" fill="url(#grad-ext-0-S)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M75,12 C82,2 92,10 88,25 C84,20 78,17 75,12 Z" fill="url(#grad-ext-0-S)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M82,25 Q70,12 50,12 Q25,12 25,32 Q25,48 50,52 Q72,55 72,70 Q72,82 50,82 Q28,82 20,68 H42 Q45,70 52,70 Q60,70 60,60 Q60,53 45,50 Q20,44 20,28 Q20,10 50,10 Q80,10 85,25 Z" fill="url(#grad-ext-0-S)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-0-S)"></g>
+                <g transform="translate(0, -20)">
+                  <path d="M45,95 L50,78 L55,95 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                  <path d="M32,92 L36,80 L40,92 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                  <path d="M60,92 L64,80 L68,92 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="26" cy="10" r="9" fill="#ffffff" />
+                  <circle cx="26" cy="8.5" r="4.05" fill="#1e0b20" />
+                  <circle cx="23.75" cy="7.75" r="1.3499999999999999" fill="#ffffff" stroke="none" />
+                  <path d="M15,5.5 L37,1 L37,-2 L15,-2 Z" fill="currentColor" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="50" cy="2" r="12" fill="#ffffff" />
+                  <circle cx="50" cy="0" r="5.4" fill="#1e0b20" />
+                  <circle cx="47" cy="-1" r="1.7999999999999998" fill="#ffffff" stroke="none" />
+                  <path d="M36,-4 L64,-10 L64,-13 L36,-13 Z" fill="currentColor" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="74" cy="10" r="10" fill="#ffffff" />
+                  <circle cx="74" cy="8.333333333333334" r="4.5" fill="#1e0b20" />
+                  <circle cx="71.5" cy="7.5" r="1.5" fill="#ffffff" stroke="none" />
+                  <path d="M62,5 L86,0 L86,-3 L62,-3 Z" fill="currentColor" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round">
+                  <path d="M 50 86 L 37 77 V 95 Z" fill="#ff296d" />
+                  <path d="M 50 86 L 63 77 V 95 Z" fill="#ff296d" />
+                  <circle cx="50" cy="86" r="4" fill="#f5ee30" stroke="#1e0b20" strokeWidth="2.5" />
+                </g>
+              </g>
+              <g transform="translate(131, 34) rotate(6, 50, 50) scale(1)">
+                <path d="M82,26 Q55,8 28,30 Q10,52 28,78 Q55,96 82,82 Q72,66 54,66 Q38,56 42,42 Q48,34 68,34 Z" fill="url(#grad-ext-1-C)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-1-C)">
+                  <circle cx="30" cy="30" r="6" fill="#000" fillOpacity="0.15" />
+                  <circle cx="75" cy="70" r="8" fill="#000" fillOpacity="0.15" />
+                  <circle cx="70" cy="25" r="4" fill="#000" fillOpacity="0.15" />
+                  <circle cx="25" cy="75" r="5" fill="#000" fillOpacity="0.15" />
+                </g>
+                <g transform="translate(-5, 5)">
+                  <path d="M38,5 Q38,18 43,18 Q45,15 45,5 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                  <path d="M62,5 Q62,18 57,18 Q55,15 55,5 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="34" cy="6" r="11" fill="#ffffff" />
+                  <circle cx="34" cy="6" r="4.95" fill="#1e0b20" />
+                  <circle cx="31.25" cy="3.25" r="1.65" fill="#ffffff" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="66" cy="4" r="12" fill="#ffffff" />
+                  <circle cx="66" cy="4" r="5.4" fill="#1e0b20" />
+                  <circle cx="63" cy="1" r="1.7999999999999998" fill="#ffffff" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="3.2" fill="none" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="31" cy="49" r="10.5" />
+                  <circle cx="59" cy="49" r="10.5" />
+                  <line x1="41.5" y1="49" x2="48.5" y2="49" />
+                  <path d="M 20.5 49 Q 14 45 8 53" />
+                  <path d="M 69.5 49 Q 76 45 82 53" />
+                </g>
+              </g>
+              <g transform="translate(222, 52) rotate(-4, 50, 50) scale(1)">
+                <path d="M40,12 L43,2 L50,8 L57,2 L60,12 Z" fill="#ffea00" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M18,10 H65 Q85,10 85,38 Q80,55 58,58 L85,90 H60 L38,62 H40 V90 H18 Z M40,24 H52 Q62,24 62,38 Q62,45 48,45 H40 Z" fill="url(#grad-ext-2-R)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-2-R)">
+                  <path d="M35,35 Q40,40 45,35 M50,45 Q55,50 60,45 M30,55 Q35,60 40,55" fill="none" stroke="#1e0b20" strokeOpacity="0.25" strokeWidth="2.5" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="50" cy="4" r="14" fill="#ffffff" />
+                  <circle cx="48.6" cy="2.6" r="6.3" fill="#1e0b20" />
+                  <circle cx="45.333333333333336" cy="-0.666666666666667" r="2.8000000000000003" fill="#ffffff" stroke="none" />
+                  <circle cx="53.5" cy="7.5" r="1.4000000000000001" fill="#ffffff" stroke="none" />
+                  <line x1="38.8" y1="-3" x2="33.2" y2="-8.6" stroke="#1e0b20" strokeWidth="2.7777777777777777" />
+                  <line x1="61.2" y1="-3" x2="66.8" y2="-8.6" stroke="#1e0b20" strokeWidth="2.7777777777777777" />
+                </g>
+                <g opacity="0.65">
+                  <ellipse cx="33" cy="44" rx="6.5" ry="3.5" fill="#ff4081" stroke="none" />
+                  <ellipse cx="69" cy="44" rx="6.5" ry="3.5" fill="#ff4081" stroke="none" />
+                </g>
+              </g>
+              <g transform="translate(313, 32) rotate(8, 50, 50) scale(1)">
+                <path d="M18,18 Q5,5 2,22 Q5,28 15,22 Z" fill="url(#grad-ext-3-I)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M82,18 Q95,5 98,22 Q95,28 85,22 Z" fill="url(#grad-ext-3-I)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M30,10 H70 V26 H55 V74 H70 V90 H30 V74 H45 V26 H30 Z" fill="url(#grad-ext-3-I)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-3-I)"></g>
+                <g transform="translate(0, 5)">
+                  <path d="M30,5 L35,16 L40,5 L45,16 L50,5 L55,16 L65,5 L70,16 L75,5" fill="none" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="34" cy="6" r="11" fill="#ffffff" />
+                  <circle cx="36.75" cy="9.666666666666666" r="4.95" fill="#1e0b20" />
+                  <circle cx="31.25" cy="3.25" r="1.65" fill="#ffffff" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="66" cy="4" r="12" fill="#ffffff" />
+                  <circle cx="62" cy="8" r="5.4" fill="#1e0b20" />
+                  <circle cx="63" cy="1" r="1.7999999999999998" fill="#ffffff" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="0.8" strokeLinejoin="round" strokeLinecap="round">
+                  <path d="M 50 61 Q 37 57 30 64 Q 40 67 50 62.5 Q 60 67 70 64 Q 63 57 50 61 Z" fill="#1e0b20" />
+                </g>
+                <path d="M25,85 Q25,102 22,102 Q19,102 19,85 Z" fill="url(#grad-ext-3-I)" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" opacity="0.9" />
+                <path d="M50,83 Q50,110 46,110 Q42,110 42,83 Z" fill="url(#grad-ext-3-I)" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" opacity="0.9" />
+                <path d="M75,85 Q75,100 72,100 Q69,100 69,85 Z" fill="url(#grad-ext-3-I)" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" opacity="0.9" />
+              </g>
+              <g transform="translate(404, 45) rotate(-7, 50, 50) scale(1)">
+                <path d="M35,10 L50,-4 L65,10 Z" fill="url(#grad-ext-4-V)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M15,18 L26,8 L37,18 Z" fill="url(#grad-ext-4-V)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M63,18 L74,8 L85,18 Z" fill="url(#grad-ext-4-V)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M12,10 H36 L50,66 L64,10 H88 L64,90 H36 Z" fill="url(#grad-ext-4-V)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-4-V)"></g>
+                <g transform="translate(0, -34)">
+                  <path d="M40,90 Q50,70 60,90 Q50,95 40,90 Z" fill="#ff4081" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="50" cy="4" r="14" fill="#ffffff" />
+                  <circle cx="50" cy="4" r="6.3" fill="#1e0b20" />
+                  <circle cx="46.5" cy="0.5" r="2.1" fill="#ffffff" stroke="none" />
+                </g>
+                <path d="M80,80 Q98,82 105,72 Q112,62 102,55 Q96,51 90,62 Q85,72 80,80 Z" fill="url(#grad-ext-4-V)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M101,58 L108,52 L103,64 Z" fill="#ffeb3b" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M106,66 L113,63 L107,71 Z" fill="#ffeb3b" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+              </g>
+              <g transform="translate(495, 30) rotate(9, 50, 50) scale(1)">
+                <path d="M12,40 C-8,45 -12,20 -2,12 C2,22 8,30 12,40 Z M12,40 C-2,46 -4,55 0,60 C4,52 8,46 12,40 Z" fill="#2A1A4A" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M88,40 C108,45 112,20 102,12 C98,22 92,30 88,40 Z M88,40 C102,46 104,55 100,60 C96,52 92,46 88,40 Z" fill="#2A1A4A" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M50,10 Q85,10 85,50 Q85,90 50,90 Q15,90 15,50 Q15,10 50,10 Z M50,30 Q63,30 63,50 Q63,70 50,70 Q37,70 37,50 Q37,30 50,30 Z" fill="url(#grad-ext-5-O)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-5-O)"></g>
+                <g transform="translate(0, -20)">
+                  <path d="M45,95 L50,78 L55,95 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                  <path d="M32,92 L36,80 L40,92 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                  <path d="M60,92 L64,80 L68,92 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round">
+                  <path d="M 50 86 L 37 77 V 95 Z" fill="#ff296d" />
+                  <path d="M 50 86 L 63 77 V 95 Z" fill="#ff296d" />
+                  <circle cx="50" cy="86" r="4" fill="#f5ee30" stroke="#1e0b20" strokeWidth="2.5" />
+                </g>
+              </g>
+              <g transform="translate(586, 47) rotate(-5, 50, 50) scale(1)">
+                <path d="M25,12 C18,2 8,10 12,25 C16,20 22,17 25,12 Z" fill="url(#grad-ext-6-L)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M75,12 C82,2 92,10 88,25 C84,20 78,17 75,12 Z" fill="url(#grad-ext-6-L)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M20,10 H42 V70 H80 V90 H20 Z" fill="url(#grad-ext-6-L)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-6-L)"></g>
+                <g transform="translate(-20, 15)">
+                  <path d="M38,5 Q38,18 43,18 Q45,15 45,5 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                  <path d="M62,5 Q62,18 57,18 Q55,15 55,5 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="34" cy="6" r="11" fill="#ffffff" />
+                  <circle cx="34" cy="6" r="4.95" fill="#1e0b20" />
+                  <circle cx="31.25" cy="3.25" r="1.65" fill="#ffffff" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="66" cy="4" r="12" fill="#ffffff" />
+                  <circle cx="66" cy="4" r="5.4" fill="#1e0b20" />
+                  <circle cx="63" cy="1" r="1.7999999999999998" fill="#ffffff" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="3.2" fill="none" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="16" cy="59" r="10.5" />
+                  <circle cx="44" cy="59" r="10.5" />
+                  <line x1="26.5" y1="59" x2="33.5" y2="59" />
+                  <path d="M 5.5 59 Q -1 55 -7 63" />
+                  <path d="M 54.5 59 Q 61 55 67 63" />
+                </g>
+                <path d="M25,85 Q25,102 22,102 Q19,102 19,85 Z" fill="url(#grad-ext-6-L)" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" opacity="0.9" />
+                <path d="M50,83 Q50,110 46,110 Q42,110 42,83 Z" fill="url(#grad-ext-6-L)" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" opacity="0.9" />
+                <path d="M75,85 Q75,100 72,100 Q69,100 69,85 Z" fill="url(#grad-ext-6-L)" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" opacity="0.9" />
+              </g>
+              <g transform="translate(677, 36) rotate(8, 50, 50) scale(1)">
+                <path d="M35,10 Q28,-5 34,-12 Q40,-12 40,-5 L41,10 Z" fill="url(#grad-ext-7-I)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M65,10 Q72,-5 66,-12 Q60,-12 60,-5 L59,10 Z" fill="url(#grad-ext-7-I)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="undefined" fill="url(#grad-ext-7-I)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="undefined" fill="url(#grad-ext-7-I)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="undefined" fill="url(#grad-ext-7-I)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="undefined" fill="url(#grad-ext-7-I)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <circle cx="34" cy="-11" r="4" fill="#fff" stroke="#1e0b20" strokeWidth="2.5" />
+                <circle cx="33.5" cy="-11" r="1.8" fill="#1e0b20" />
+                <circle cx="66" cy="-11" r="4" fill="#fff" stroke="#1e0b20" strokeWidth="2.5" />
+                <circle cx="65.5" cy="-11" r="1.8" fill="#1e0b20" />
+                <path d="M30,10 H70 V26 H55 V74 H70 V90 H30 V74 H45 V26 H30 Z" fill="url(#grad-ext-7-I)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-7-I)">
+                  <circle cx="30" cy="30" r="6" fill="#000" fillOpacity="0.15" />
+                  <circle cx="75" cy="70" r="8" fill="#000" fillOpacity="0.15" />
+                  <circle cx="70" cy="25" r="4" fill="#000" fillOpacity="0.15" />
+                  <circle cx="25" cy="75" r="5" fill="#000" fillOpacity="0.15" />
+                </g>
+                <g transform="translate(0, -22)">
+                  <path d="M40,90 Q50,70 60,90 Q50,95 40,90 Z" fill="#ff4081" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="26" cy="10" r="9" fill="#ffffff" />
+                  <circle cx="25.1" cy="9.1" r="4.05" fill="#1e0b20" />
+                  <circle cx="23" cy="7" r="1.8" fill="#ffffff" stroke="none" />
+                  <circle cx="28.25" cy="12.25" r="0.9" fill="#ffffff" stroke="none" />
+                  <line x1="18.8" y1="5.5" x2="15.200000000000001" y2="1.9000000000000004" stroke="#1e0b20" strokeWidth="2.7777777777777777" />
+                  <line x1="33.2" y1="5.5" x2="36.8" y2="1.9000000000000004" stroke="#1e0b20" strokeWidth="2.7777777777777777" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="50" cy="2" r="12" fill="#ffffff" />
+                  <circle cx="48.8" cy="0.8" r="5.4" fill="#1e0b20" />
+                  <circle cx="46" cy="-2" r="2.4000000000000004" fill="#ffffff" stroke="none" />
+                  <circle cx="53" cy="5" r="1.2000000000000002" fill="#ffffff" stroke="none" />
+                  <line x1="40.4" y1="-4" x2="35.6" y2="-8.8" stroke="#1e0b20" strokeWidth="2.7777777777777777" />
+                  <line x1="59.6" y1="-4" x2="64.4" y2="-8.8" stroke="#1e0b20" strokeWidth="2.7777777777777777" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="74" cy="10" r="10" fill="#ffffff" />
+                  <circle cx="73" cy="9" r="4.5" fill="#1e0b20" />
+                  <circle cx="70.66666666666667" cy="6.666666666666666" r="2" fill="#ffffff" stroke="none" />
+                  <circle cx="76.5" cy="12.5" r="1" fill="#ffffff" stroke="none" />
+                  <line x1="66" y1="5" x2="62" y2="1" stroke="#1e0b20" strokeWidth="2.7777777777777777" />
+                  <line x1="82" y1="5" x2="86" y2="1" stroke="#1e0b20" strokeWidth="2.7777777777777777" />
+                </g>
+                <g opacity="0.65">
+                  <ellipse cx="32" cy="58" rx="6.5" ry="3.5" fill="#ff4081" stroke="none" />
+                  <ellipse cx="68" cy="58" rx="6.5" ry="3.5" fill="#ff4081" stroke="none" />
+                </g>
+              </g>
+              <g transform="translate(768, 50) rotate(-12, 50, 50) scale(1)">
+                <path d="M35,10 L50,-4 L65,10 Z" fill="url(#grad-ext-8-N)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M15,18 L26,8 L37,18 Z" fill="url(#grad-ext-8-N)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M63,18 L74,8 L85,18 Z" fill="url(#grad-ext-8-N)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M15,10 H38 L68,60 V10 H90 V90 H68 L38,38 V90 H15 Z" fill="url(#grad-ext-8-N)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-8-N)"></g>
+                <g transform="translate(0, 5)">
+                  <path d="M30,5 L35,16 L40,5 L45,16 L50,5 L55,16 L65,5 L70,16 L75,5" fill="none" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="34" cy="6" r="11" fill="#ffffff" />
+                  <circle cx="30.333333333333332" cy="9.666666666666666" r="4.95" fill="#1e0b20" />
+                  <circle cx="31.25" cy="3.25" r="1.65" fill="#ffffff" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="66" cy="4" r="12" fill="#ffffff" />
+                  <circle cx="69" cy="8" r="5.4" fill="#1e0b20" />
+                  <circle cx="63" cy="1" r="1.7999999999999998" fill="#ffffff" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="0.8" strokeLinejoin="round" strokeLinecap="round">
+                  <path d="M 50 61 Q 37 57 30 64 Q 40 67 50 62.5 Q 60 67 70 64 Q 63 57 50 61 Z" fill="#1e0b20" />
+                </g>
+                <path d="M80,80 Q98,82 105,72 Q112,62 102,55 Q96,51 90,62 Q85,72 80,80 Z" fill="url(#grad-ext-8-N)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M101,58 L108,52 L103,64 Z" fill="#ffeb3b" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M106,66 L113,63 L107,71 Z" fill="#ffeb3b" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+              </g>
+              <g transform="translate(859, 32) rotate(5, 50, 50) scale(1)">
+                <path d="M12,40 C-8,45 -12,20 -2,12 C2,22 8,30 12,40 Z M12,40 C-2,46 -4,55 0,60 C4,52 8,46 12,40 Z" fill="#2A1A4A" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M88,40 C108,45 112,20 102,12 C98,22 92,30 88,40 Z M88,40 C102,46 104,55 100,60 C96,52 92,46 88,40 Z" fill="#2A1A4A" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M18,18 Q5,5 2,22 Q5,28 15,22 Z" fill="url(#grad-ext-9-G)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M82,18 Q95,5 98,22 Q95,28 85,22 Z" fill="url(#grad-ext-9-G)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M82,24 Q55,8 28,30 Q10,52 28,78 Q55,96 82,84 V52 H54 V70 H70 V75 Q55,83 44,70 Q34,54 44,38 Q55,25 72,34 Z" fill="url(#grad-ext-9-G)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-9-G)"></g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="50" cy="4" r="14" fill="#ffffff" />
+                  <circle cx="50" cy="4" r="6.3" fill="#1e0b20" />
+                  <circle cx="46.5" cy="0.5" r="2.1" fill="#ffffff" stroke="none" />
+                </g>
+              </g>
+              <g transform="translate(950, 46) rotate(-6, 50, 50) scale(1)">
+                <path d="M50,10 Q85,10 85,50 Q85,90 50,90 Q15,90 15,50 Q15,10 50,10 Z M50,30 Q63,30 63,50 Q63,70 50,70 Q37,70 37,50 Q37,30 50,30 Z" fill="url(#grad-ext-10-O)" stroke="#1e0b20" strokeWidth="5" strokeLinejoin="round" strokeLinecap="round" />
+                <g clipPath="url(#clip-ext-10-O)">
+                  <path d="M35,35 Q40,40 45,35 M50,45 Q55,50 60,45 M30,55 Q35,60 40,55" fill="none" stroke="#1e0b20" strokeOpacity="0.25" strokeWidth="2.5" />
+                </g>
+                <g transform="translate(0, -20)">
+                  <path d="M45,95 L50,78 L55,95 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                  <path d="M32,92 L36,80 L40,92 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                  <path d="M60,92 L64,80 L68,92 Z" fill="#ffffff" stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="34" cy="6" r="11" fill="#ffffff" />
+                  <circle cx="30.333333333333332" cy="9.666666666666666" r="4.95" fill="#1e0b20" />
+                  <circle cx="31.25" cy="3.25" r="1.65" fill="#ffffff" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="2.7777777777777777" strokeLinejoin="round" strokeLinecap="round">
+                  <circle cx="66" cy="4" r="12" fill="#ffffff" />
+                  <circle cx="69" cy="8" r="5.4" fill="#1e0b20" />
+                  <circle cx="63" cy="1" r="1.7999999999999998" fill="#ffffff" stroke="none" />
+                </g>
+                <g stroke="#1e0b20" strokeWidth="3.3333333333333335" strokeLinejoin="round" strokeLinecap="round">
+                  <path d="M 50 86 L 37 77 V 95 Z" fill="#ff296d" />
+                  <path d="M 50 86 L 63 77 V 95 Z" fill="#ff296d" />
+                  <circle cx="50" cy="86" r="4" fill="#f5ee30" stroke="#1e0b20" strokeWidth="2.5" />
+                </g>
+              </g>
+            </g>
+          </svg>
         </h1>
-        <p className="text-[#1630D4] font-bold font-serif-custom text-sm sm:text-base">
-          Clicca su un'app per scaricare o stampare il suo PDF predefinito.
-        </p>
+        <p className="text-[#1630D4] font-bold font-serif-custom">Clicca su un'app per scaricare o stampare il suo PDF predefinito.</p>
       </header>
 
-      <main className="max-w-4xl mx-auto space-y-12 relative z-10 px-2 sm:px-4">
+      <main className="max-w-4xl mx-auto space-y-12 relative z-10">
 
-        {/* LIVELLO 1 */}
-        <section className="bg-[#e4dcd3] bg-[radial-gradient(#d5cbbd_1px,transparent_1px)] p-4 sm:p-6 rounded-3xl border-2 border-[#E5E5E5] shadow-sm">
-          <div className="bg-[#58CC02] text-white font-black px-4 py-2 sm:px-6 sm:py-3 rounded-2xl border-b-4 border-[#46A302] inline-block mb-6 font-serif-custom text-sm sm:text-base">
-            LIVELLO 1 (一级)
+        <section className="bg-[#e4dcd3] bg-[radial-gradient(#d5cbbd_1px,transparent_1px)] p-6 rounded-3xl border-2 border-[#E5E5E5] shadow-sm">
+          <div className="bg-[#58CC02] text-white font-black px-6 py-3 rounded-2xl border-b-4 border-[#46A302] inline-block mb-8 font-serif-custom">
+            LIVELLO 1( 一级)
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-6 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-6 text-center">
             
-            <div className="flex flex-col items-center justify-between py-2">
-              <a href="/pdf/animali.pdf" download="animali.pdf" target="_blank" rel="noreferrer" className="duo-btn w-12 h-12 sm:w-16 sm:h-16 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-lg sm:text-2xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between h-36">
+              <a href="/pdf/animali.pdf" download="animali.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                  🐼
               </a>
               <span className="text-sm sm:text-lg font-black uppercase tracking-wide text-[#777777] mt-2 font-cursive-custom">动物</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between py-2">
-              <a href="/pdf/famiglia.pdf" download="famiglia.pdf" target="_blank" rel="noreferrer" className="duo-btn w-12 h-12 sm:w-16 sm:h-16 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-lg sm:text-2xl text-white hover:brightness-105">
-                 🏡
+            <div className="flex flex-col items-center justify-between h-36">
+              <a href="/pdf/famiglia.pdf" download="famiglia.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+                🏡
               </a>
               <span className="text-sm sm:text-lg font-cursive-custom font-black uppercase tracking-wide text-[#777777] mt-2">家庭</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between py-2">
-              <a href="/pdf/famiglia2.pdf" download="famiglia2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-12 h-12 sm:w-16 sm:h-16 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-lg sm:text-2xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between h-36">
+              <a href="/pdf/famiglia2.pdf" download="famiglia2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                  🏘
               </a>
               <span className="text-sm sm:text-lg font-black uppercase tracking-wide text-[#777777] mt-2 font-cursive-custom">家庭</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between py-2">
-              <a href="/pdf/natura.pdf" download="natura.pdf" target="_blank" rel="noreferrer" className="duo-btn w-12 h-12 sm:w-16 sm:h-16 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-lg sm:text-2xl text-white hover:brightness-105">
-                 🌿
+            <div className="flex flex-col items-center justify-between h-36">
+              <a href="/pdf/natura.pdf" download="natura.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+                🌿
               </a>
               <span className="text-sm sm:text-lg font-black font-cursive-custom uppercase tracking-wide text-[#777777] mt-2">自然</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between py-2">
-              <a href="/pdf/natura2.pdf" download="natura2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-12 h-12 sm:w-16 sm:h-16 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-lg sm:text-2xl text-white hover:brightness-105">
-                 🌲
+            <div className="flex flex-col items-center justify-between h-36">
+              <a href="/pdf/natura2.pdf" download="natura2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+                🌲
               </a>
               <span className="text-sm sm:text-lg font-black font-cursive-custom uppercase tracking-wide text-[#777777] mt-2">自然</span>
             </div>
@@ -80,47 +456,47 @@ export default function PublisherView({ setView }: PublisherViewProps) {
           </div>
         </section>
 
-        {/* LIVELLO 2 */}
-        <section className="bg-white p-4 sm:p-6 rounded-3xl border-2 border-[#E5E5E5] shadow-sm">
-          <div className="bg-[#1CB0F6] text-white font-black px-4 py-2 sm:px-6 sm:py-3 rounded-2xl border-b-4 border-[#1899D6] inline-block mb-6 text-sm sm:text-base">
+
+        <section className="bg-white p-6 rounded-3xl border-2 border-[#E5E5E5] shadow-sm">
+          <div className="bg-[#1CB0F6] text-white font-black px-6 py-3 rounded-2xl border-b-4 border-[#1899D6] inline-block mb-8">
             LIVELLO 2: LO STILE
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-6 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-6 text-center">
             
-            <div className="flex flex-col items-center justify-between py-2">
-              <a href="/pdf/dialoghi.pdf" download="dialoghi.pdf" target="_blank" rel="noreferrer" className="duo-btn w-12 h-12 sm:w-16 sm:h-16 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-lg sm:text-2xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between h-36">
+              <a href="/pdf/dialoghi.pdf" download="dialoghi.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                 🎭
               </a>
-              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Dialoghi</span>
+              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Dialoghi</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between py-2">
-              <a href="/pdf/editing.pdf" download="editing.pdf" target="_blank" rel="noreferrer" className="duo-btn w-12 h-12 sm:w-16 sm:h-16 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-lg sm:text-2xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between h-36">
+              <a href="/pdf/editing.pdf" download="editing.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                 ✂️
               </a>
-              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Editing</span>
+              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Editing</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between py-2">
-              <a href="/pdf/sensi.pdf" download="sensi.pdf" target="_blank" rel="noreferrer" className="duo-btn w-12 h-12 sm:w-16 sm:h-16 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-lg sm:text-2xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between h-36">
+              <a href="/pdf/sensi.pdf" download="sensi.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                 👁️
               </a>
-              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Sensi</span>
+              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Sensi</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between py-2">
-              <a href="/pdf/metafore.pdf" download="metafore.pdf" target="_blank" rel="noreferrer" className="duo-btn w-12 h-12 sm:w-16 sm:h-16 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-lg sm:text-2xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between h-36">
+              <a href="/pdf/metafore.pdf" download="metafore.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                 🦄
               </a>
-              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Metafore</span>
+              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Metafore</span>
             </div>
 
-            <div className="flex flex-col items-center justify-between py-2">
-              <a href="/pdf/incipit.pdf" download="incipit.pdf" target="_blank" rel="noreferrer" className="duo-btn w-12 h-12 sm:w-16 sm:h-16 bg-[#FF9600] border-b-4 border-[#CC7800] shadow-[0_4px_0_#CC7800] rounded-full flex items-center justify-center text-lg sm:text-2xl text-white hover:brightness-105">
+            <div className="flex flex-col items-center justify-between h-36">
+              <a href="/pdf/incipit.pdf" download="incipit.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#FF9600] border-b-4 border-[#CC7800] shadow-[0_4px_0_#CC7800] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                 👑
               </a>
-              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide text-[#777777] mt-2">L'Incipit</span>
+              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">L'Incipit</span>
             </div>
 
           </div>
@@ -128,27 +504,26 @@ export default function PublisherView({ setView }: PublisherViewProps) {
 
       </main>
 
-      {/* BOTTOM NAV BAR */}
+      {/* BARRA DI NAVIGAZIONE IN BASSO */}
       <nav className="bg-gradient-to-r from-red-700 to-red-600 text-white border-b-4 border-yellow-500 shadow-lg fixed bottom-0 left-0 right-0 p-3 z-50">
         <div className="max-w-xl mx-auto flex justify-around text-2xl">
-          <a href="https://lingua-cinese.vercel.app/">
+          <a href="https://lingua-cinese.vercel.app/scrittura/scrivolingo.html">
             <button className="text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
               🏠 <span className="text-lg font-cursive-custom">房屋</span>
             </button>
           </a>
-          <a href="#map" onClick={(e) => { e.preventDefault(); setView('map'); }}>
+          <a href="scrivolingo.html" onClick={(e) => { e.preventDefault(); setView('map'); }}>
             <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">
               🧧 <span className="text-lg font-cursive-custom">汉字</span>
-            </button>
+            </button> 
           </a>
           <a href="https://lingua-cinese.vercel.app/caratteri.html">
             <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">
-              🧧 <span className="text-lg font-cursive-custom">象形文字</span>
+              🧧<span className="text-lg font-cursive-custom">象形文字</span>
             </button>
           </a>
         </div>
       </nav>
-
     </div>
   );
 }
