@@ -6,19 +6,19 @@ interface PublisherViewProps {
 
 export default function PublisherView({ setView }: PublisherViewProps) {
   return (
-    <div className="bg-gradient-to-r from-yellow-500 to-red-500 text-slate-800 text-[#3C3C3C] font-sans antialiased pb-24 min-h-screen relative p-6">
+    <div className="bg-gradient-to-r from-yellow-500 to-red-500 text-slate-800 text-[#3C3C3C] font-sans antialiased pb-24 min-h-screen relative p-4 sm:p-6">
       
       {/* WATERMARK BACKGROUND */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 opacity-10">
-       <span className="text-[7rem] sm:text-[10rem] md:text-[18rem] lg:text-[28rem] font-calligrafico text-white leading-none transform -rotate-12 select-none">
+        <span className="text-[15rem] md:text-[30rem] lg:text-[40rem] font-calligrafico text-white leading-none transform -rotate-12 select-none">
           出 版  社 
         </span>
       </div>
 
-      <header className="max-w-3xl mx-auto mb-10 text-center relative z-10">
+      <header className="max-w-4xl mx-auto mb-10 text-center relative z-10">
         <h1 className="mb-4">
-          <div style={{ backgroundColor: '#000000', display: 'inline-block', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden', padding: '24px' }}>
-            <pre style={{ fontFamily: 'Courier New, Courier, monospace', fontSize: '9px', lineHeight: '1.1', letterSpacing: '-1.5px', margin: 0, whiteSpace: 'pre', wordWrap: 'normal', fontWeight: 'bold', background: 'none', border: 'none', filter: 'drop-shadow(0px 0px 12px #c1a51a)' }}>
+          <div style={{ backgroundColor: '#000000', display: 'inline-block', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden' }} className="p-3 sm:p-6 max-w-full overflow-x-auto">
+            <pre style={{ fontFamily: 'Courier New, Courier, monospace', fontSize: 'clamp(6px, 1.8vw, 12px)', lineHeight: '1.1', letterSpacing: '-2.5px', margin: 0, whiteSpace: 'pre', wordWrap: 'normal', fontWeight: 'bold', background: 'none', border: 'none', filter: 'drop-shadow(0px 0px 12px #c1a51a)' }}>
               <span style={{ color: '#d7843a' }}>★</span>
               <span style={{ color: '#d7863a' }}>★</span>
               <span style={{ color: '#d7873b' }}>★</span>
@@ -394,58 +394,58 @@ export default function PublisherView({ setView }: PublisherViewProps) {
       <main className="max-w-4xl mx-auto space-y-12 relative z-10">
 
         {/* LIVELLO 1 */}
-        <section className="bg-[#e4dcd3] bg-[radial-gradient(#d5cbbd_1px,transparent_1px)] p-6 rounded-3xl border-2 border-[#E5E5E5] shadow-sm">
+        <section className="bg-[#e4dcd3] bg-[radial-gradient(#d5cbbd_1px,transparent_1px)] p-4 sm:p-6 rounded-3xl border-2 border-[#E5E5E5] shadow-sm">
           <div className="bg-[#58CC02] text-white font-black px-6 py-3 rounded-2xl border-b-4 border-[#46A302] inline-block mb-8 font-serif-custom">
             LIVELLO 1 (一级)
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-6 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-6 text-center">
             
             <div className="flex flex-col items-center justify-between h-36">
               <a href="/pdf/animali.pdf" download="animali.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                  🐼
               </a>
-              <span className="text-5xl font-black uppercase tracking-wide text-[#777777] mt-2 font-cursive-custom">动物</span>
+              <span className="text-3xl sm:text-4xl font-black uppercase tracking-wide text-[#777777] mt-2 font-cursive-custom">动物</span>
             </div>
 
             <div className="flex flex-col items-center justify-between h-36">
               <a href="/pdf/famiglia.pdf" download="famiglia.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                 🏡
               </a>
-              <span className="text-5xl font-cursive-custom font-black uppercase tracking-wide text-[#777777] mt-2">家庭</span>
+              <span className="text-3xl sm:text-4xl font-cursive-custom font-black uppercase tracking-wide text-[#777777] mt-2">家庭</span>
             </div>
 
             <div className="flex flex-col items-center justify-between h-36">
               <a href="/pdf/famiglia2.pdf" download="famiglia2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                  🏘
               </a>
-              <span className="text-5xl font-black uppercase tracking-wide text-[#777777] mt-2 font-cursive-custom">家庭</span>
+              <span className="text-3xl sm:text-4xl font-black uppercase tracking-wide text-[#777777] mt-2 font-cursive-custom">家庭</span>
             </div>
 
             <div className="flex flex-col items-center justify-between h-36">
               <a href="/pdf/natura.pdf" download="natura.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                 🌿
               </a>
-              <span className="text-5xl font-black font-cursive-custom uppercase tracking-wide text-[#777777] mt-2">自然</span>
+              <span className="text-3xl sm:text-4xl font-black font-cursive-custom uppercase tracking-wide text-[#777777] mt-2">自然</span>
             </div>
 
             <div className="flex flex-col items-center justify-between h-36">
               <a href="/pdf/natura2.pdf" download="natura2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
                 🌲
               </a>
-              <span className="text-5xl font-black font-cursive-custom uppercase tracking-wide text-[#777777] mt-2">自然</span>
+              <span className="text-3xl sm:text-4xl font-black font-cursive-custom uppercase tracking-wide text-[#777777] mt-2">自然</span>
             </div>
 
           </div>
         </section>
 
         {/* LIVELLO 2 */}
-        <section className="bg-white p-6 rounded-3xl border-2 border-[#E5E5E5] shadow-sm">
+        <section className="bg-white p-4 sm:p-6 rounded-3xl border-2 border-[#E5E5E5] shadow-sm">
           <div className="bg-[#1CB0F6] text-white font-black px-6 py-3 rounded-2xl border-b-4 border-[#1899D6] inline-block mb-8">
             LIVELLO 2: LO STILE
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-6 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-6 text-center">
             
             <div className="flex flex-col items-center justify-between h-36">
               <a href="/pdf/dialoghi.pdf" download="dialoghi.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
@@ -511,3 +511,4 @@ export default function PublisherView({ setView }: PublisherViewProps) {
     </div>
   );
 }
+
