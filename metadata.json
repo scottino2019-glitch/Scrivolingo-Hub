@@ -1,0 +1,6 @@
+{
+  "name": "Scrivolinguo Hub",
+  "description": "Mappa interattiva e download delle schede di scrittura per l'apprendimento dei caratteri cinesi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
