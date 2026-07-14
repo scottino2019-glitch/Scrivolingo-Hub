@@ -10,7 +10,7 @@ export default function PublisherView({ setView }: PublisherViewProps) {
       
       {/* WATERMARK BACKGROUND */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 opacity-10">
-        <span className="text-[15rem] md:text-[30rem] lg:text-[40rem] font-calligrafico text-white leading-none transform -rotate-12 select-none">
+       <span className="text-[7rem] sm:text-[10rem] md:text-[18rem] lg:text-[28rem] font-calligrafico text-white leading-none transform -rotate-12 select-none">
           出 版  社 
         </span>
       </div>
