@@ -107,18 +107,18 @@ export default function MapView({ setView }: MapViewProps) {
 
           {/* App 6 (Centro) */}
           <div className="flex flex-col items-center">
-            <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
-              🎭
-            </button>
-            <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">Dialoghi</span>
+    <a href="/app/aggettivi1.html">        <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
+              🤩
+            </button></a>
+            <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">Aggettivi1</span>
           </div>
 
           {/* App 7 (Sinistra) */}
           <div className="nodo-sinistra flex flex-col items-center">
-            <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
-              ✂️
-            </button>
-            <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">Editing</span>
+   <a href="/app/aggettivi2.html">         <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
+              🤩
+            </button></a>
+            <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">Aggettivi2</span>
           </div>
 
           {/* App 8 (Destra) */}
