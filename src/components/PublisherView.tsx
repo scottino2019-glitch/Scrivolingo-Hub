@@ -507,12 +507,12 @@ export default function PublisherView({ setView }: PublisherViewProps) {
       {/* BARRA DI NAVIGAZIONE IN BASSO */}
       <nav className="bg-gradient-to-r from-red-700 to-red-600 text-white border-b-4 border-yellow-500 shadow-lg fixed bottom-0 left-0 right-0 p-3 z-50">
         <div className="max-w-xl mx-auto flex justify-around text-2xl">
-          <a href="https://lingua-cinese.vercel.app/">
+          <a href="scrivolingo.html">
             <button className="text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
               🏠 <span className="text-lg font-cursive-custom">房屋</span>
             </button>
           </a>
-          <a href="scrivolingo.html" onClick={(e) => { e.preventDefault(); setView('map'); }}>
+          <a href="https://lingua-cinese.vercel.app/esercizi.html" onClick={(e) => { e.preventDefault(); setView('map'); }}>
             <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">
               🧧 <span className="text-lg font-cursive-custom">汉字</span>
             </button> 
