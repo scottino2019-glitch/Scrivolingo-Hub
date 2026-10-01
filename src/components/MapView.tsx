@@ -3,7 +3,6 @@ import ScrivolingoLogo from './ScrivolingoLogo';
 
 interface MapViewProps {
   setView: (view: 'map' | 'publisher') => void;
-  setView: (view: 'map' | 'exercises') => void;
 }
 
 export default function MapView({ setView }: MapViewProps) {
