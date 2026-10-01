@@ -89,15 +89,15 @@ export default function ExercisesView({ setView }: ExercisesViewProps) {
             </div>
 
             <div className="flex flex-col items-center justify-between h-36">
-              <a href="app/editing.html" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
-                ✂️
+              <a href="app/aggettivi.html" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+                ⭐
               </a>
               <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Editing</span>
             </div>
 
             <div className="flex flex-col items-center justify-between h-36">
-              <a href="app/sensi.html" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
-                👁️
+              <a href="app/aggettivi2.html" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+                🤪
               </a>
               <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Sensi</span>
             </div>
