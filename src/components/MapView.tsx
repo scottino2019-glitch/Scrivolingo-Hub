@@ -3,6 +3,7 @@ import ScrivolingoLogo from './ScrivolingoLogo';
 
 interface MapViewProps {
   setView: (view: 'map' | 'publisher') => void;
+  setView: (view: 'map' | 'exercises') => void;
 }
 
 export default function MapView({ setView }: MapViewProps) {
@@ -159,7 +160,7 @@ export default function MapView({ setView }: MapViewProps) {
           <a href="#publisher" onClick={(e) => { e.preventDefault(); setView('publisher'); }}>
             <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🖨 <span className="text-lg font-cursive-custom">出版社</span></button>
           </a>
-          <a href="https://lingua-cinese.vercel.app/caratteri.html">
+          <a href="#exercises">
             <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🧧<span className="text-lg font-cursive-custom">象形文字</span></button>
           </a>
         </div>
