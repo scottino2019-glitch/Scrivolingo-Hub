@@ -507,19 +507,19 @@ export default function PublisherView({ setView }: PublisherViewProps) {
       {/* BARRA DI NAVIGAZIONE IN BASSO */}
       <nav className="bg-gradient-to-r from-red-700 to-red-600 text-white border-b-4 border-yellow-500 shadow-lg fixed bottom-0 left-0 right-0 p-3 z-50">
         <div className="max-w-xl mx-auto flex justify-around text-2xl">
-          <a href="https://scrivolingo-hub.vercel.app/">
-            <button className="text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
+          <a href="#map" onClick={(e) => { e.preventDefault(); setView('map'); }}>
+            <button className="text-[#AFAFAF] hover:text-white font-bold text-md flex flex-col items-center cursor-pointer">
               🏠 <span className="text-lg font-cursive-custom">房屋</span>
             </button>
           </a>
-          <a href="https://lingua-cinese.vercel.app/esercizi.html" onClick={(e) => { e.preventDefault(); setView('map'); }}>
-            <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">
-              🌐 <span className="text-lg font-cursive-custom">汉字</span>
-            </button> 
+          <a href="#publisher" onClick={(e) => { e.preventDefault(); setView('publisher'); }}>
+            <button className="text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
+              🖨 <span className="text-lg font-cursive-custom">出版社</span>
+            </button>
           </a>
-          <a href="exercises">
-            <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">
-              🧧<span className="text-lg font-cursive-custom">象形文字</span>
+          <a href="#exercises" onClick={(e) => { e.preventDefault(); setView('exercises'); }}>
+            <button className="text-[#AFAFAF] hover:text-white font-bold text-md flex flex-col items-center cursor-pointer">
+              🧧 <span className="text-lg font-cursive-custom">象形文字</span>
             </button>
           </a>
         </div>
