@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import MapView from './components/MapView';
 import PublisherView from './components/PublisherView';
+import ExercisesView from './components/ExercisesView';
 
 export default function App() {
-  const [view, setView] = useState<'map' | 'publisher'>('map');
+  const [view, setView] = useState<'map' | 'publisher' | 'exercises' >('map');
 
   return (
     <>
@@ -32,6 +33,8 @@ export default function App() {
         <MapView setView={setView} />
       ) : (
         <PublisherView setView={setView} />
+      ) : (
+        <ExercisesView setView={setView} />
       )}
     </>
   );
