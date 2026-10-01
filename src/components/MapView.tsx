@@ -2,7 +2,7 @@ import React from 'react';
 import ScrivolingoLogo from './ScrivolingoLogo';
 
 interface MapViewProps {
-  setView: (view: 'map' | 'publisher') => void;
+  setView: (view: 'map' | 'publisher' | 'exercises' ) => void;
 }
 
 export default function MapView({ setView }: MapViewProps) {
@@ -44,7 +44,7 @@ export default function MapView({ setView }: MapViewProps) {
 
           {/* App 1 (Centro) */}
           <div className="flex flex-col items-center">
-            <a href="/app/animali.html">
+            <a href="/app/zh-animali.html">
               <button className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
                🐼
               </button>
@@ -159,7 +159,7 @@ export default function MapView({ setView }: MapViewProps) {
           <a href="#publisher" onClick={(e) => { e.preventDefault(); setView('publisher'); }}>
             <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🖨 <span className="text-lg font-cursive-custom">出版社</span></button>
           </a>
-          <a href="https://lingua-cinese.vercel.app/caratteri.html">
+          <a href="#exercises">
             <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🧧<span className="text-lg font-cursive-custom">象形文字</span></button>
           </a>
         </div>
