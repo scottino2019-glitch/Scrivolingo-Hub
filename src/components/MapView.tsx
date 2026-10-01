@@ -2,7 +2,7 @@ import React from 'react';
 import ScrivolingoLogo from './ScrivolingoLogo';
 
 interface MapViewProps {
-  setView: (view: 'map' | 'publisher' | 'exercises' ) => void;
+  setView: (view: 'map' | 'publisher' | 'exercises') => void;
 }
 
 export default function MapView({ setView }: MapViewProps) {
@@ -44,7 +44,7 @@ export default function MapView({ setView }: MapViewProps) {
 
           {/* App 1 (Centro) */}
           <div className="flex flex-col items-center">
-            <a href="/app/zh-animali.html">
+            <a href="app/zh-animali.html">
               <button className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
                🐼
               </button>
@@ -54,7 +54,7 @@ export default function MapView({ setView }: MapViewProps) {
 
           {/* App 2 (Sinistra) */}
           <div className="nodo-sinistra flex flex-col items-center">
-            <a href="/app/famiglia.html">
+            <a href="app/famiglia.html">
               <button className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
                 🏡
               </button>
@@ -64,7 +64,7 @@ export default function MapView({ setView }: MapViewProps) {
 
           {/* App 3 (Destra) */}
           <div className="nodo-destra flex flex-col items-center">
-            <a href="/app/famiglia2.html">
+            <a href="app/famiglia2.html">
               <button className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
               🏘
               </button>
@@ -74,7 +74,7 @@ export default function MapView({ setView }: MapViewProps) {
 
           {/* App 4 (Sinistra) */}
           <div className="nodo-sinistra flex flex-col items-center">
-            <a href="/app/natura.html">
+            <a href="app/natura.html">
               <button className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
                   🌿
               </button>
@@ -84,7 +84,7 @@ export default function MapView({ setView }: MapViewProps) {
 
           {/* App 5 (Centro) */}
           <div className="flex flex-col items-center">
-            <a href="/app/natura2.html">
+            <a href="app/natura2.html">
               <button className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
                 🌲
               </button>
@@ -107,42 +107,52 @@ export default function MapView({ setView }: MapViewProps) {
 
           {/* App 6 (Centro) */}
           <div className="flex flex-col items-center">
-            <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
-              🎭
-            </button>
+            <a href="app/dialoghi.html">
+              <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
+                🎭
+              </button>
+            </a>
             <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">Dialoghi</span>
           </div>
 
           {/* App 7 (Sinistra) */}
           <div className="nodo-sinistra flex flex-col items-center">
-            <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
-              ✂️
-            </button>
+            <a href="app/editing.html">
+              <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
+                ✂️
+              </button>
+            </a>
             <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">Editing</span>
           </div>
 
           {/* App 8 (Destra) */}
           <div className="nodo-destra flex flex-col items-center">
-            <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
-              👁️
-            </button>
+            <a href="app/sensi.html">
+              <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
+                👁️
+              </button>
+            </a>
             <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">Sensi</span>
           </div>
 
           {/* App 9 (Sinistra) */}
           <div className="nodo-sinistra flex flex-col items-center">
-            <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
-              🦄
-            </button>
+            <a href="app/metafore.html">
+              <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
+                🦄
+              </button>
+            </a>
             <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">Metafore</span>
           </div>
 
           {/* App 10 (Centro) */}
           <div className="flex flex-col items-center">
             {/* Bottone Arancione per la sfida "Boss" finale del livello */}
-            <button className="duo-btn w-20 h-20 bg-[#FF9600] border-b-4 border-[#CC7800] shadow-[0_4px_0_#CC7800] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
-              👑
-            </button>
+            <a href="app/incipit.html">
+              <button className="duo-btn w-20 h-20 bg-[#FF9600] border-b-4 border-[#CC7800] shadow-[0_4px_0_#CC7800] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
+                👑
+              </button>
+            </a>
             <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">L'Incipit</span>
           </div>
 
@@ -153,14 +163,20 @@ export default function MapView({ setView }: MapViewProps) {
       {/* BOTTOM NAV BAR */}
       <nav className="bg-gradient-to-r from-red-700 to-red-600 text-white border-b-4 border-yellow-500 shadow-lg fixed bottom-0 left-0 right-0 p-3 z-50">
         <div className="max-w-xl mx-auto flex justify-around text-2xl">
-          <a href="https://lingua-cinese.vercel.app/">
-            <button className="text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">🏠 <span className="text-lg font-cursive-custom">房屋</span></button>
+          <a href="#map" onClick={(e) => { e.preventDefault(); setView('map'); }}>
+            <button className="text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
+              🏠 <span className="text-lg font-cursive-custom">房屋</span>
+            </button>
           </a>
           <a href="#publisher" onClick={(e) => { e.preventDefault(); setView('publisher'); }}>
-            <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🖨 <span className="text-lg font-cursive-custom">出版社</span></button>
+            <button className="text-[#AFAFAF] hover:text-white font-bold text-md flex flex-col items-center cursor-pointer">
+              🖨 <span className="text-lg font-cursive-custom">出版社</span>
+            </button>
           </a>
-          <a href="#exercises">
-            <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🧧<span className="text-lg font-cursive-custom">象形文字</span></button>
+          <a href="#exercises" onClick={(e) => { e.preventDefault(); setView('exercises'); }}>
+            <button className="text-[#AFAFAF] hover:text-white font-bold text-md flex flex-col items-center cursor-pointer">
+              🧧 <span className="text-lg font-cursive-custom">象形文字</span>
+            </button>
           </a>
         </div>
       </nav>
