@@ -1,11 +1,13 @@
 import React from 'react';
 import ScrivolingoLogo from './ScrivolingoLogo';
 
+export type ViewMode = 'map' | 'publisher' | 'exercises';
+
 interface ExercisesViewProps {
-  setView: (view: 'map' | 'publisher') => void;
+  setView: (view: ViewMode) => void;
 }
 
-export default function ExercicesView({ setView }: ExercisesViewProps) {
+export default function ExercisesView({ setView }: ExercisesViewProps) {
   return (
     <div className="bg-gradient-to-r from-yellow-500 to-red-500 text-slate-800 text-[#3C3C3C] font-sans antialiased pb-24 min-h-screen relative">
       
@@ -18,8 +20,22 @@ export default function ExercicesView({ setView }: ExercisesViewProps) {
           </div>
 
           <div className="flex space-x-6 font-bold text-sm text-[#777777] shrink-0">
-            <span className="flex items-center font-cursive-custom text-[#1CB0F6] text-2xl">🈸 <span className="ml-1">文</span></span>
-            <span className="flex items-center font-cursive-custom text-[#1CB0F6] text-2xl">汉<span className="ml-1"> 字</span></span>
+            <button 
+              type="button"
+              onClick={() => setView('exercises')}
+              className="flex items-center font-cursive-custom text-[#FFD700] text-2xl cursor-pointer hover:opacity-80 transition"
+              title="Esercizi"
+            >
+              🈸 <span className="ml-1">文</span>
+            </button>
+            <button 
+              type="button"
+              onClick={() => setView('map')}
+              className="flex items-center font-cursive-custom text-[#1CB0F6] text-2xl cursor-pointer hover:opacity-80 transition"
+              title="Mappa Hanzi"
+            >
+              汉<span className="ml-1"> 字</span>
+            </button>
           </div>
         </div>
       </header>
@@ -107,17 +123,21 @@ export default function ExercicesView({ setView }: ExercisesViewProps) {
 
           {/* App 6 (Centro) */}
           <div className="flex flex-col items-center">
-    <a href="/app/aggettivi1.html">        <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
-              🤩
-            </button></a>
+            <a href="/app/aggettivi1.html">
+              <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
+                🤩
+              </button>
+            </a>
             <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">Aggettivi1</span>
           </div>
 
           {/* App 7 (Sinistra) */}
           <div className="nodo-sinistra flex flex-col items-center">
-   <a href="/app/aggettivi2.html">         <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
-              🤩
-            </button></a>
+            <a href="/app/aggettivi2.html">
+              <button className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
+                🤩
+              </button>
+            </a>
             <span className="text-xs font-black mt-2 uppercase tracking-wide text-[#777777]">Aggettivi2</span>
           </div>
 
@@ -153,14 +173,25 @@ export default function ExercicesView({ setView }: ExercisesViewProps) {
       {/* BOTTOM NAV BAR */}
       <nav className="bg-gradient-to-r from-red-700 to-red-600 text-white border-b-4 border-yellow-500 shadow-lg fixed bottom-0 left-0 right-0 p-3 z-50">
         <div className="max-w-xl mx-auto flex justify-around text-2xl">
-          <a href="scrivolingo.html">
-            <button className="text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">🏠 <span className="text-lg font-cursive-custom">房屋</span></button>
+          <a href="#map" onClick={(e) => { e.preventDefault(); setView('map'); }}>
+            <button className="text-[#AFAFAF] hover:text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
+              🏠 <span className="text-lg font-cursive-custom">房屋</span>
+            </button>
+          </a>
+          <a href="#exercises" onClick={(e) => { e.preventDefault(); setView('exercises'); }}>
+            <button className="text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
+              📝 <span className="text-lg font-cursive-custom">练习</span>
+            </button>
           </a>
           <a href="#publisher" onClick={(e) => { e.preventDefault(); setView('publisher'); }}>
-            <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🖨 <span className="text-lg font-cursive-custom">出版社</span></button>
+            <button className="text-[#AFAFAF] hover:text-white font-bold text-md flex flex-col items-center cursor-pointer">
+              🖨 <span className="text-lg font-cursive-custom">出版社</span>
+            </button>
           </a>
           <a href="https://lingua-cinese.vercel.app/caratteri.html">
-            <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🧧<span className="text-lg font-cursive-custom">象形文字</span></button>
+            <button className="text-[#AFAFAF] hover:text-white font-bold text-md flex flex-col items-center cursor-pointer">
+              🧧 <span className="text-lg font-cursive-custom">象形文字</span>
+            </button>
           </a>
         </div>
       </nav>

@@ -1,7 +1,8 @@
 import React from 'react';
+import { ViewMode } from './ExercisesView';
 
 interface PublisherViewProps {
-  setView: (view: 'map' | 'publisher') => void;
+  setView: (view: ViewMode) => void;
 }
 
 export default function PublisherView({ setView }: PublisherViewProps) {
@@ -465,17 +466,17 @@ export default function PublisherView({ setView }: PublisherViewProps) {
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-6 text-center">
             
             <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/aggettivi1.pdf" download="aggettivi1.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
-                🤩
+              <a href="/pdf/dialoghi.pdf" download="dialoghi.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+                🎭
               </a>
-              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">形容词</span>
+              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Dialoghi</span>
             </div>
 
             <div className="flex flex-col items-center justify-between h-36">
-              <a href="/pdf/aggettivi2.pdf" download="aggettivi2.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
-                🤩
+              <a href="/pdf/editing.pdf" download="editing.pdf" target="_blank" rel="noreferrer" className="duo-btn w-20 h-20 bg-[#1CB0F6] border-b-4 border-[#1899D6] shadow-[0_4px_0_#1899D6] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105">
+                ✂️
               </a>
-              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">形容词</span>
+              <span className="text-xs font-black uppercase tracking-wide text-[#777777] mt-2">Editing</span>
             </div>
 
             <div className="flex flex-col items-center justify-between h-36">
@@ -507,18 +508,23 @@ export default function PublisherView({ setView }: PublisherViewProps) {
       {/* BARRA DI NAVIGAZIONE IN BASSO */}
       <nav className="bg-gradient-to-r from-red-700 to-red-600 text-white border-b-4 border-yellow-500 shadow-lg fixed bottom-0 left-0 right-0 p-3 z-50">
         <div className="max-w-xl mx-auto flex justify-around text-2xl">
-          <a href="https://lingua-cinese.vercel.app/scrittura/scrivolingo.html">
-            <button className="text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
+          <a href="#map" onClick={(e) => { e.preventDefault(); setView('map'); }}>
+            <button className="text-[#AFAFAF] hover:text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
               🏠 <span className="text-lg font-cursive-custom">房屋</span>
             </button>
           </a>
-          <a href="scrivolingo.html" onClick={(e) => { e.preventDefault(); setView('map'); }}>
-            <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">
-              🧧 <span className="text-lg font-cursive-custom">汉字</span>
+          <a href="#exercises" onClick={(e) => { e.preventDefault(); setView('exercises'); }}>
+            <button className="text-[#AFAFAF] hover:text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
+              📝 <span className="text-lg font-cursive-custom">练习</span>
+            </button> 
+          </a>
+          <a href="#publisher" onClick={(e) => { e.preventDefault(); setView('publisher'); }}>
+            <button className="text-[#58CC02] font-bold text-md flex flex-col items-center cursor-pointer">
+              🖨 <span className="text-lg font-cursive-custom">出版社</span>
             </button> 
           </a>
           <a href="https://lingua-cinese.vercel.app/caratteri.html">
-            <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">
+            <button className="text-[#AFAFAF] hover:text-white font-bold text-md flex flex-col items-center cursor-pointer">
               🧧<span className="text-lg font-cursive-custom">象形文字</span>
             </button>
           </a>
@@ -527,4 +533,3 @@ export default function PublisherView({ setView }: PublisherViewProps) {
     </div>
   );
 }
-
