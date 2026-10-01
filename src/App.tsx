@@ -4,7 +4,7 @@ import PublisherView from './components/PublisherView';
 import ExercisesView from './components/ExercisesView';
 
 export default function App() {
-  const [view, setView] = useState<'map' | 'publisher' | 'exercises' >('map');
+  const [view, setView] = useState<'map' | 'publisher' | 'exercises'>('map');
 
   return (
     <>
@@ -31,7 +31,7 @@ export default function App() {
 
       {view === 'map' ? (
         <MapView setView={setView} />
-      ) : (
+      ) : view === 'publisher' ? (
         <PublisherView setView={setView} />
       ) : (
         <ExercisesView setView={setView} />
