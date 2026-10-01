@@ -1,11 +1,11 @@
 import React from 'react';
 import ScrivolingoLogo from './ScrivolingoLogo';
 
-interface MapViewProps {
+interface ExercisesViewProps {
   setView: (view: 'map' | 'publisher') => void;
 }
 
-export default function MapView({ setView }: MapViewProps) {
+export default function ExercicesView({ setView }: ExercisesViewProps) {
   return (
     <div className="bg-gradient-to-r from-yellow-500 to-red-500 text-slate-800 text-[#3C3C3C] font-sans antialiased pb-24 min-h-screen relative">
       
