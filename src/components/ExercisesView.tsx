@@ -160,7 +160,7 @@ export default function ExercisesView({ setView }: ExercisesViewProps) {
             <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🖨 <span className="text-lg font-cursive-custom">出版社</span></button>
           </a>
           <a href="https://lingua-cinese.vercel.app/esercizi.html">
-            <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🧧<span className="text-lg font-cursive-custom">象形文字</span></button>
+            <button className="text-[#AFAFAF] font-bold text-md flex flex-col items-center cursor-pointer">🌐<span className="text-lg font-cursive-custom">象形文字</span></button>
           </a>
         </div>
       </nav>
