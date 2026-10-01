@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import MapView from './components/MapView';
 import PublisherView from './components/PublisherView';
-import ExercisesView, { ViewMode } from './components/ExercisesView';
 
 export default function App() {
-  const [view, setView] = useState<ViewMode>('map');
+  const [view, setView] = useState<'map' | 'publisher'>('map');
 
   return (
     <>
@@ -31,10 +30,8 @@ export default function App() {
 
       {view === 'map' ? (
         <MapView setView={setView} />
-      ) : view === 'publisher' ? (
-        <PublisherView setView={setView} />
       ) : (
-        <ExercisesView setView={setView} />
+        <PublisherView setView={setView} />
       )}
     </>
   );
