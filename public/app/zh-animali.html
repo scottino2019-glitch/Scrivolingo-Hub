@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Animali - Lezione Interattiva Duolingo Style</title>
+  <style>
+    :root {
+      --primary: #58cc02;
+      --primary-dark: #46a302;
+      --primary-light: #d7ffb8;
+      --danger: #ff4b4b;
+      --danger-dark: #ea2b2b;
+      --danger-light: #ffdfe0;
+      --sky: #1cb0f6;
+      --sky-dark: #1899d6;
+      --gold: #ffc800;
+      --gold-dark: #e5a400;
+      --gray-light: #f7f7f7;
+      --gray-border: #e5e5e5;
+      --text-main: #3c3c3c;
+      --text-muted: #777777;
+      --bg-page: #f8fafc;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar with Mode Switcher */
+    .top-nav {
+      background: white;
+      border-bottom: 2px solid #e2e8f0;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mode-switcher {
+      display: flex;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: 12px;
+      gap: 4px;
+    }
+
+    .mode-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 9px;
+      cursor: pointer;
+      color: #64748b;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .mode-btn.active {
+      background: white;
+      color: #0f172a;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    /* Top Progress Bar & Header for Quiz Mode */
+    header {
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 16px 20px 8px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: #afafaf;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      transition: background 0.15s;
+    }
+    .close-btn:hover {
+      background: #f0f0f0;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 16px;
+      background-color: #e5e5e5;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #58cc02, #7ae01b);
+      border-radius: 999px;
+      transition: width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .hearts-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      color: var(--danger);
+      font-size: 18px;
+    }
+
+    .heart-icon {
+      font-size: 20px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Question Typography */
+    .exercise-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    /* Audio Banner */
+    .audio-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 30px;
+      padding: 16px;
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .btn-audio {
+      background-color: var(--sky);
+      border: none;
+      border-bottom: 4px solid var(--sky-dark);
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      transition: transform 0.1s, border-bottom 0.1s;
+    }
+    .btn-audio:active {
+      transform: translateY(3px);
+      border-bottom-width: 1px;
+    }
+
+    .btn-audio-slow {
+      background-color: #f1f5f9;
+      border: 2px solid #cbd5e1;
+      border-bottom: 4px solid #94a3b8;
+      color: #475569;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .btn-audio-slow:active {
+      transform: translateY(2px);
+      border-bottom-width: 2px;
+    }
+
+    .audio-text-wrap {
+      flex: 1;
+    }
+
+    .audio-primary-text {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: 0.5px;
+    }
+
+    .audio-phonetic {
+      font-size: 15px;
+      color: #64748b;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Multiple Choice Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    @media (min-width: 600px) {
+      .options-grid.grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .option-btn {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-bottom: 4px solid #cbd5e1;
+      border-radius: 16px;
+      padding: 16px 20px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .option-btn:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+    .option-btn.selected {
+      background-color: #ddf4ff;
+      border-color: #84d8ff;
+      border-bottom-color: #1cb0f6;
+      color: #1899d6;
+    }
+
+    /* Writing Exercise */
+    .prompt-box {
+      font-size: 19px;
+      font-weight: 700;
+      color: #1e293b;
+      background: white;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border-left: 5px solid var(--sky);
+      border-top: 1px solid #e2e8f0;
+      border-right: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 20px;
+    }
+
+    .writing-input-wrapper {
+      position: relative;
+    }
+
+    .writing-input {
+      width: 100%;
+      font-size: 20px;
+      padding: 16px 20px;
+      border: 2px solid #cbd5e1;
+      border-radius: 16px;
+      outline: none;
+      background: white;
+      transition: border-color 0.2s;
+    }
+    .writing-input:focus {
+      border-color: var(--sky);
+      box-shadow: 0 0 0 3px rgba(28, 176, 246, 0.2);
+    }
+
+    /* Virtual Character Helper Bar with Backspace */
+    .virtual-keys-bar {
+      margin-top: 16px;
+      padding: 14px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+    }
+    .virtual-keys-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .virtual-keys-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748b;
+      font-weight: 700;
+    }
+    .virtual-keys-actions {
+      display: flex;
+      gap: 6px;
+    }
+    .v-action-btn {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+    }
+    .v-action-btn:hover {
+      background: #fee2e2;
+      color: #dc2626;
+      border-color: #fca5a5;
+    }
+
+    .virtual-keys {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      max-height: 140px;
+      overflow-y: auto;
+    }
+    .v-key {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-bottom: 2px solid #94a3b8;
+      border-radius: 8px;
+      padding: 6px 11px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #334155;
+      cursor: pointer;
+      user-select: none;
+    }
+    .v-key:hover {
+      background: #e2e8f0;
+    }
+    .v-key:active {
+      transform: translateY(1px);
+      border-bottom-width: 1px;
+    }
+
+    /* Drag and Drop Word Builder */
+    .drag-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .clear-all-tokens-btn {
+      background: #fee2e2;
+      border: 1px solid #fecaca;
+      color: #dc2626;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .clear-all-tokens-btn:hover {
+      background: #fecaca;
+    }
+
+    .drag-slots-area {
+      min-height: 72px;
+      border-bottom: 2px solid #cbd5e1;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 4px 16px;
+    }
+    .drag-slots-placeholder {
+      color: #94a3b8;
+      font-size: 15px;
+      font-style: italic;
+      user-select: none;
+    }
+
+    .word-bank {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 0;
+    }
+
+    .word-chip {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-bottom: 4px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 10px 18px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e293b;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.1s, opacity 0.15s, border-color 0.15s;
+    }
+    .word-chip:hover {
+      background: #f8fafc;
+    }
+    .word-chip:active {
+      transform: translateY(2px);
+      border-bottom-width: 2px;
+    }
+    .word-chip.used {
+      background: #e2e8f0;
+      border-color: #e2e8f0;
+      border-bottom-color: #e2e8f0;
+      color: transparent;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .placed-chip {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+      border-bottom: 4px solid #4ade80;
+      color: #166534;
+      border-radius: 14px;
+      padding: 10px 18px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      animation: popIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Matching Pairs Game */
+    .pairs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .pair-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pair-card {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-bottom: 4px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .pair-card:hover {
+      background: #f8fafc;
+    }
+    .pair-card.selected {
+      background: #ddf4ff;
+      border-color: #38bdf8;
+      border-bottom-color: #0284c7;
+      color: #0284c7;
+      transform: scale(1.02);
+    }
+    .pair-card.matched {
+      background: #f0fdf4;
+      border-color: #86efac;
+      border-bottom-color: #4ade80;
+      color: #15803d;
+      opacity: 0.6;
+      cursor: default;
+      pointer-events: none;
+    }
+    .pair-card.shake {
+      animation: shake 0.4s ease-in-out;
+      background: #fef2f2;
+      border-color: #f87171;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    /* Bottom Action Bar (Duolingo Style) */
+    footer {
+      border-top: 2px solid #e2e8f0;
+      background-color: white;
+      padding: 20px;
+      position: sticky;
+      bottom: 0;
+      z-index: 50;
+      transition: background-color 0.2s;
+    }
+
+    .footer-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .feedback-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .feedback-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .feedback-text h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    .feedback-text p {
+      font-size: 15px;
+      color: #4b5563;
+    }
+
+    footer.correct {
+      background-color: var(--primary-light);
+      border-top-color: #bbf7d0;
+    }
+    footer.correct .feedback-icon {
+      background-color: white;
+      color: var(--primary);
+    }
+    footer.correct .feedback-text h3 {
+      color: var(--primary-dark);
+    }
+
+    footer.wrong {
+      background-color: var(--danger-light);
+      border-top-color: #fecaca;
+    }
+    footer.wrong .feedback-icon {
+      background-color: white;
+      color: var(--danger);
+    }
+    footer.wrong .feedback-text h3 {
+      color: var(--danger-dark);
+    }
+
+    .btn-action {
+      background-color: var(--primary);
+      border: none;
+      border-bottom: 4px solid var(--primary-dark);
+      border-radius: 16px;
+      color: white;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      cursor: pointer;
+      transition: all 0.12s ease;
+      min-width: 150px;
+      text-align: center;
+    }
+    .btn-action:hover:not(:disabled) {
+      filter: brightness(1.05);
+    }
+    .btn-action:active:not(:disabled) {
+      transform: translateY(3px);
+      border-bottom-width: 1px;
+    }
+    .btn-action:disabled {
+      background-color: #e2e8f0;
+      border-bottom-color: #cbd5e1;
+      color: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    .btn-action.btn-continue {
+      background-color: var(--primary);
+      border-bottom-color: var(--primary-dark);
+    }
+    .btn-action.btn-continue-wrong {
+      background-color: var(--danger);
+      border-bottom-color: var(--danger-dark);
+    }
+
+    /* Lesson Completed Screen */
+    .complete-card {
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .complete-badge {
+      font-size: 72px;
+      margin-bottom: 16px;
+      animation: bounce 1s infinite alternate;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-12px); }
+    }
+
+    .complete-title {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+    .complete-subtitle {
+      font-size: 17px;
+      color: #64748b;
+      margin-bottom: 30px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .stat-box {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .stat-val {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .stat-lbl {
+      font-size: 13px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* THEORY & VOCABULARY SECTION STYLES */
+    #theoryContainer {
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .theory-header-card {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .btn-autoplay {
+      background: #0284c7;
+      color: white;
+      border: none;
+      border-bottom: 3px solid #0369a1;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-autoplay.playing {
+      background: #f59e0b;
+      border-bottom-color: #d97706;
+      animation: pulse 1.2s infinite;
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 640px) {
+      .vocab-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .vocab-card {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    .vocab-card.active-speaking {
+      border-color: #38bdf8;
+      background: #f0f9ff;
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .vocab-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .vocab-target {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .vocab-phonetic {
+      font-size: 14px;
+      color: #64748b;
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    .vocab-audio-actions {
+      display: flex;
+      gap: 6px;
+      shrink: 0;
+    }
+    .btn-vocab-play {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      color: #0284c7;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .btn-vocab-play:hover {
+      background: #e0f2fe;
+    }
+
+    .vocab-translation {
+      font-size: 15px;
+      font-weight: 700;
+      color: #15803d;
+      padding-top: 8px;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .vocab-note {
+      font-size: 12px;
+      color: #64748b;
+      background: #f8fafc;
+      padding: 6px 10px;
+      border-radius: 8px;
+      line-height: 1.4;
+    }
+
+    /* Confetti Canvas */
+    #confettiCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    /* Game Over Modal */
+    .gameover-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      padding: 20px;
+    }
+    .gameover-box {
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .sound-toggle-btn {
+      background: none;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Flashcard Studio in Standalone HTML */
+    .theory-sub-switch {
+      display: flex;
+      background: #e2e8f0;
+      padding: 4px;
+      border-radius: 14px;
+      gap: 4px;
+      margin-bottom: 20px;
+      max-width: 360px;
+    }
+    .sub-mode-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #475569;
+      transition: all 0.15s ease;
+      text-align: center;
+    }
+    .sub-mode-btn.active {
+      background: white;
+      color: #0f172a;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .flashcard-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .flashcard-container {
+      width: 100%;
+      min-height: 290px;
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 28px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      padding: 36px 24px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.2s ease;
+      user-select: none;
+      position: relative;
+    }
+    .flashcard-container:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 6px 22px rgba(56, 189, 248, 0.14);
+      transform: translateY(-2px);
+    }
+    .flashcard-flip-badge {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #94a3b8;
+    }
+    .flashcard-target {
+      font-size: 40px;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.2;
+      margin: 8px 0;
+    }
+    .flashcard-phonetic {
+      font-size: 17px;
+      font-weight: 600;
+      color: #64748b;
+      font-style: italic;
+    }
+    .flashcard-translation {
+      font-size: 28px;
+      font-weight: 900;
+      color: #15803d;
+      margin: 8px 0;
+    }
+    .flashcard-note {
+      font-size: 13px;
+      color: #475569;
+      background: #f8fafc;
+      padding: 8px 14px;
+      border-radius: 12px;
+      max-width: 90%;
+      margin: 8px auto 0;
+      line-height: 1.4;
+      border: 1px solid #f1f5f9;
+    }
+    .flashcard-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 10px;
+    }
+    .btn-fc-nav {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-fc-nav:hover:not(:disabled) {
+      background: #e2e8f0;
+    }
+    .btn-fc-nav:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+    .fc-audio-group {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-fc-audio {
+      background: #0284c7;
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .btn-fc-audio.slow {
+      background: white;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Top Navigation with Mode Toggle -->
+  <div class="top-nav">
+    <div class="brand-title">
+      <span>🦜</span>
+      <span>Animali</span>
+    </div>
+
+    <div class="mode-switcher">
+      <button id="btnModeGame" class="mode-btn active" onclick="switchMode('game')">🎮 Quiz Duolingo</button>
+      <button id="btnModeTheory" class="mode-btn" onclick="switchMode('theory')">📖 Teoria & Ascolto</button>
+    </div>
+
+    <button id="soundToggle" class="sound-toggle-btn" onclick="toggleSound()">🔊 Audio</button>
+  </div>
+
+  <!-- Quiz Header Bar -->
+  <header id="appHeader">
+    <button class="close-btn" onclick="confirmExit()" title="Ricomincia o esci">✕</button>
+    <div class="progress-track">
+      <div id="progressBar" class="progress-fill" style="width: 0%;"></div>
+    </div>
+    <div class="hearts-box">
+      <span class="heart-icon">❤️</span>
+      <span id="heartsCount">5</span>
+    </div>
+  </header>
+
+  <!-- Quiz Main Exercise Container -->
+  <main id="appMain">
+    <div id="exerciseContainer"></div>
+  </main>
+
+  <!-- Theory, Vocabulary & Flashcard Container -->
+  <div id="theoryContainer">
+    <div class="theory-header-card">
+      <div>
+        <h2 style="font-size:20px;font-weight:800;color:#0f172a;">Vocabolario & Flashcard Studio</h2>
+        <p style="font-size:13px;color:#64748b;margin-top:2px;">
+          Leggi i caratteri Cinese e ascolta la pronuncia nativa con flashcard interattive.
+        </p>
+      </div>
+
+      <button id="btnAutoplay" class="btn-autoplay" onclick="toggleTheoryAutoplay()">
+        ▶️ Riproduci Tutti i Vocaboli
+      </button>
+    </div>
+
+    <!-- Theory Sub-Mode Switch: Cards vs Flashcards -->
+    <div class="theory-sub-switch">
+      <button id="btnSubVocab" class="sub-mode-btn active" onclick="switchTheorySubMode('vocab')">📋 Schede Vocabolario</button>
+      <button id="btnSubFlashcard" class="sub-mode-btn" onclick="switchTheorySubMode('flashcard')">🃏 Flashcard Studio</button>
+    </div>
+
+    <!-- View 1: Vocabulary Cards Grid -->
+    <div id="vocabSectionView">
+      <div id="vocabListArea" class="vocab-grid"></div>
+    </div>
+
+    <!-- View 2: Interactive Flashcard Stage -->
+    <div id="flashcardSectionView" style="display:none;">
+      <div class="flashcard-stage">
+        <div style="font-size:12px;font-weight:700;color:#64748b;display:flex;justify-content:space-between;width:100%;padding:0 4px;">
+          <span id="fcCounter">Carta 1 di 1</span>
+          <span>Tocca la carta per girarla ↺</span>
+        </div>
+
+        <div id="flashcardElement" class="flashcard-container" onclick="flipFlashcard()">
+          <!-- Injected dynamically -->
+        </div>
+
+        <div class="flashcard-controls">
+          <button id="btnFcPrev" class="btn-fc-nav" onclick="prevFlashcard()">← Precedente</button>
+
+          <div class="fc-audio-group">
+            <button class="btn-fc-audio" onclick="playCurrentFlashcard(1.0)" title="Ascolta">🔊</button>
+            <button class="btn-fc-audio slow" onclick="playCurrentFlashcard(0.6)" title="Ascolta lento">🐢</button>
+          </div>
+
+          <button id="btnFcNext" class="btn-fc-nav" onclick="nextFlashcard()">Successiva →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Duolingo Bottom Footer Bar -->
+  <footer id="appFooter">
+    <div class="footer-inner">
+      <div id="feedbackContainer" class="feedback-box" style="display: none;"></div>
+      <button id="mainActionButton" class="btn-action" onclick="handleMainAction()">Verifica</button>
+    </div>
+  </footer>
+
+  <script>
+    // Embedded Lesson Data
+    const LESSON = {"id":"lesson-zh-1790854583627","title":"Animali","language":"zh","description":"Imparare nuovi vocaboli","difficulty":"Principiante","theoryNotes":"*   **猫 (māo) - Gatto:** Vedi la parte a sinistra **犭**? Ci dice che è un animale peloso. La parte a destra **苗** (*miáo*) serve per il suono.\n*   **狗 (gǒu) - Cane:** Stesso discorso! **犭** (animale) + **句** (*jù*, che dà il suono simile a *gǒu*).\n*   **狮 (shī) - Leone:** Ancora lui, il radicale del predatore!\n\n### 2. Il gruppo degli uccelli (Radicale 鸟 / 鳥)\nIl radicale **鸟** (*niǎo*) rappresenta proprio un uccellino con le piume e la coda.\n\n*   **鸭 (yā) - Anatra:** Qui il radicale è a destra.\n*   **鸡 (jī) - Pollo/Gallo:** Molto comune!\n*   **鹅 (é) - Oca:** Vedi come quel simbolo ricorre sempre?\n\n### 3. Il gruppo degli \"esseri striscianti\" (Radicale 虫)\nAttenzione qui! Il radicale **虫** (*chóng*) originariamente significava \"serpente\", ma oggi include **insetti, rettili e anfibi**.\n\n*   **蛇 (shé) - Serpente:** Usa il radicale degli \"esseri lunghi e striscianti\".\n*   **蛙 (wā) - Rana:** Anche lei fa parte di questo gruppo.\n*   **蝴蝶 (húdié) - Farfalla:** Entrambi i caratteri hanno il radicale dell'insetto.\n\n### 4. Il gruppo del mare (Radicale 鱼 / 魚)\nTutto ciò che nuota spesso porta con sé il radicale del pesce **鱼** (*yú*).\n\n*   **鲜 (xiān) - Fresco:** (Ok, non è un animale, ma guarda come il pesce indica la freschezza del cibo!).\n*   **鲸 (jīng) - Balena:** È un mammifero, ma per i cinesi antichi viveva in acqua, quindi... radicale del pesce!\n\n### 5. Gli animali che sono \"radicali di se stessi\"\nAlcuni animali sono così importanti che hanno un loro carattere unico che non viene diviso in pezzi. Sono spesso usati come radicali per altri caratteri:\n*   **马 (mǎ) - Cavallo**\n*   **牛 (niú) - Mucca/Bue**\n*   **羊 (yáng) - Pecora/Capra**\n*   **龙 (lóng) - Dragone**\n*   **虎 (hǔ) - Tigre**","flashcards":[{"id":"fc-1790853934148-prml","front":"猫","phonetic":"māo","back":"Gatto"},{"id":"fc-1790853965740-rtv7","front":"狗","phonetic":"gǒu","back":"cane"},{"id":"fc-1790854004495-x9py","front":"鱼","phonetic":"yú","back":"pesce"},{"id":"fc-1790854044956-r9aj","front":"鼠","phonetic":"shǔ","back":"Topo"},{"id":"fc-1790854069941-z2w1","front":"牛","phonetic":"niú","back":"Bue"},{"id":"fc-1790854098414-nxll","front":"虎","phonetic":"hǔ","back":"Tigre"},{"id":"fc-1790854175709-t27d","front":"兔","phonetic":"tù","back":"Coniglio"},{"id":"fc-1790854200030-y86j","front":"龙","phonetic":"lóng","back":"Drago"},{"id":"fc-1790854230848-ywbb","front":"蛇","phonetic":"shé","back":"Serpente"},{"id":"fc-1790854263954-pmzf","front":"马","phonetic":"mǎ","back":"Cavallo"},{"id":"fc-1790854291083-2g2t","front":"猴","phonetic":"hóu","back":"Scimmia"},{"id":"fc-1790854319398-hxqk","front":"鸡","phonetic":"jī","back":"Gallo"},{"id":"fc-1790854348807-iuta","front":"猪","phonetic":"zhū","back":"Maiale"},{"id":"fc-1790854384043-7qy8","front":"熊","phonetic":"Xióng","back":"Panda"},{"id":"fc-1790854438418-261y","front":"鸟","phonetic":"niǎo","back":"Eccello"}],"customVocab":[],"exercises":[{"id":"ex-1790857103667-7mb8","type":"writing","prompt":"Traduci in lingua straniera:","sourceText":"cavallo","sourceLang":"it","targetAnswer":"mǎ"},{"id":"ex-1790858133633-n634","type":"listening","prompt":"Ascolta l'audio e scegli il significato corretto:","audioText":"鸟","mode":"multiple_choice","options":["niáo","niǎo","niào","niāo"],"correctAnswer":"niǎo"},{"id":"ex-1790857778171-3xro","type":"writing","prompt":"Traduci in lingua straniera:","sourceText":"Bue","sourceLang":"it","targetAnswer":"牛"},{"id":"ex-1790858072375-j2hh","type":"pairs","prompt":"Collega ogni vocabolo con la rispettiva traduzione:","pairs":[{"target":"羊","translation":"Pecora","phonetic":"yáng"},{"target":"鱼","translation":"Pesce","phonetic":"yú"},{"target":"狗","translation":"Cane","phonetic":"gǒu"},{"target":"猫","translation":"Gatto","phonetic":"māo"}],"explanation":"Ottimo lavoro nel collegare i vocaboli!"},{"id":"ex-1790858247625-tgnh","type":"listening","prompt":"Ascolta l'audio e scegli il significato corretto:","audioText":"zhū","mode":"multiple_choice","options":["猪 (zhū)","竹 (zhú)","煮 (zhǔ","柱 (zhù)"],"correctAnswer":"猪 (zhū)"},{"id":"ex-1790858341774-9owx","type":"listening","prompt":"Ascolta l'audio e scegli il significato corretto:","audioText":"鱼","mode":"multiple_choice","options":["yú","yǔ","yù","yu"],"correctAnswer":"yú"},{"id":"ex-1790858602583-l6ol","type":"drag_drop","prompt":"Trascina le parole per formare la frase corretta:","italianSentence":"狗,猫,鱼,马","correctTokens":["gǒu","māo","yú","mǎ"],"distractorTokens":[]}],"createdAt":1790854583627};
+    const LANG_CONFIG = {"code":"zh","name":"Cinese","nativeName":"中文 (Mandarino)","flag":"🇨🇳","voiceLang":"zh-CN","phoneticLabel":"Pinyin","samplePlaceholder":"es. 你好 (nǐ hǎo)","virtualChars":["ā","á","ǎ","à","ē","é","ě","è","ī","í","ǐ","ì","ō","ó","ǒ","ò","ū","ú","ǔ","ù","ǖ","ǘ","ǚ","ǜ","吗","呢","的","了"]};
+
+    // Game State
+    let currentMode = 'game'; // 'game' | 'theory'
+    let currentIndex = 0;
+    let hearts = 5;
+    let xp = 0;
+    let correctCount = 0;
+    let audioSpeed = 1.0;
+    let soundEnabled = true;
+
+    // Current Exercise State
+    let currentSelectedOption = null;
+    let currentPlacedTokens = [];
+    let currentWordBank = [];
+    let currentPairSelected = null;
+    let currentMatchedPairsCount = 0;
+    let exerciseAnswered = false;
+
+    // Theory Autoplay State
+    let theoryAutoplayActive = false;
+    let theoryAutoplayIndex = 0;
+    let theoryAutoplayTimer = null;
+    let theoryVocabList = [];
+
+    // Web Audio Synthesizer
+    let audioCtx = null;
+    function getAudioContext() {
+      if (!soundEnabled) return null;
+      if (!audioCtx) {
+        const AudioClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioClass) audioCtx = new AudioClass();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playSfx(type) {
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      if (type === 'correct') {
+        [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(f, now + i * 0.08);
+          gain.gain.setValueAtTime(0, now + i * 0.08);
+          gain.gain.linearRampToValueAtTime(0.18, now + i * 0.08 + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.35);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + i * 0.08);
+          osc.stop(now + i * 0.08 + 0.36);
+        });
+      } else if (type === 'wrong') {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(160, now);
+        osc.frequency.exponentialRampToValueAtTime(110, now + 0.35);
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.linearRampToValueAtTime(0.001, now + 0.35);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.36);
+      } else if (type === 'pop') {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(450, now);
+        osc.frequency.exponentialRampToValueAtTime(800, now + 0.06);
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.08);
+      }
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      document.getElementById('soundToggle').innerText = soundEnabled ? '🔊 Audio' : '🔇 Muto';
+    }
+
+    // Web Speech TTS
+    function speakTarget(text, rate = 1.0) {
+      if (!('speechSynthesis' in window) || !text) return Promise.resolve();
+      return new Promise(resolve => {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = LANG_CONFIG.voiceLang || 'zh-CN';
+        u.rate = rate;
+        const voices = window.speechSynthesis.getVoices();
+        const matched = voices.find(v => v.lang.toLowerCase().replace('_', '-').startsWith(u.lang.toLowerCase().slice(0, 2)));
+        if (matched) u.voice = matched;
+        u.onend = () => resolve();
+        u.onerror = () => resolve();
+        window.speechSynthesis.speak(u);
+      });
+    }
+
+    // Mode Switcher: Game vs Theory
+    function switchMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnModeGame').className = mode === 'game' ? 'mode-btn active' : 'mode-btn';
+      document.getElementById('btnModeTheory').className = mode === 'theory' ? 'mode-btn active' : 'mode-btn';
+
+      if (mode === 'game') {
+        document.getElementById('appHeader').style.display = 'flex';
+        document.getElementById('appMain').style.display = 'flex';
+        document.getElementById('appFooter').style.display = 'block';
+        document.getElementById('theoryContainer').style.display = 'none';
+        stopTheoryAutoplay();
+      } else {
+        document.getElementById('appHeader').style.display = 'none';
+        document.getElementById('appMain').style.display = 'none';
+        document.getElementById('appFooter').style.display = 'none';
+        document.getElementById('theoryContainer').style.display = 'block';
+        renderTheoryVocabList();
+      }
+    }
+
+    // Start App reliably
+    function startApp() {
+      try {
+        buildTheoryVocabList();
+        loadExercise();
+      } catch (err) {
+        console.error('Errore avvio lezione:', err);
+        const container = document.getElementById('exerciseContainer');
+        if (container) {
+          container.innerHTML = '<div style="text-align:center;padding:40px;color:#ef4444;font-weight:bold;">Errore nel caricamento della lezione: ' + escapeHtml(err.message) + '</div>';
+        }
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startApp);
+    } else {
+      startApp();
+    }
+
+    function loadExercise() {
+      exerciseAnswered = false;
+      resetFooter();
+      const container = document.getElementById('exerciseContainer');
+
+      if (!LESSON.exercises || LESSON.exercises.length === 0) {
+        if (container) {
+          container.innerHTML = '<div class="complete-card">' +
+            '<div style="font-size:52px;margin-bottom:12px;">📝</div>' +
+            '<h2 style="font-size:24px;font-weight:800;color:#1e293b;margin-bottom:8px;">Lezione Vuota</h2>' +
+            '<p style="color:#64748b;font-size:15px;max-width:380px;margin:0 auto;">Questa lezione non contiene ancora esercizi. Aggiungi esercizi nell&apos;editor per iniziare a giocare!</p>' +
+            '</div>';
+        }
+        const foot = document.getElementById('appFooter');
+        if (foot) foot.style.display = 'none';
+        return;
+      }
+
+      if (currentIndex >= LESSON.exercises.length) {
+        showCompleteScreen();
+        return;
+      }
+
+      // Update progress
+      const progressPercent = Math.round((currentIndex / LESSON.exercises.length) * 100);
+      document.getElementById('progressBar').style.width = progressPercent + '%';
+      document.getElementById('heartsCount').innerText = hearts;
+
+      const ex = LESSON.exercises[currentIndex];
+      if (container) container.innerHTML = '';
+
+      if (ex.type === 'listening') {
+        renderListening(ex, container);
+      } else if (ex.type === 'writing') {
+        renderWriting(ex, container);
+      } else if (ex.type === 'drag_drop') {
+        renderDragDrop(ex, container);
+      } else if (ex.type === 'pairs') {
+        renderPairs(ex, container);
+      }
+
+      updateVerifyButtonState();
+    }
+
+    // 1. Listening Renderer
+    function renderListening(ex, container) {
+      currentSelectedOption = null;
+
+      let html = '<h2 class="exercise-title">' + escapeHtml(ex.prompt) + '</h2>';
+      html += '<div class="audio-card">';
+      html += '<button class="btn-audio" onclick="speakTarget(\'' + escapeJs(ex.audioText) + '\', 1.0)" title="Ascolta normale">🔊</button>';
+      html += '<button class="btn-audio-slow" onclick="speakTarget(\'' + escapeJs(ex.audioText) + '\', 0.6)" title="Ascolta piano">🐢</button>';
+      html += '<div class="audio-text-wrap">';
+      html += '<div class="audio-primary-text">' + escapeHtml(ex.audioText) + '</div>';
+      if (ex.phonetic) {
+        html += '<div class="audio-phonetic">[' + escapeHtml(ex.phonetic) + ']</div>';
+      }
+      html += '</div></div>';
+
+      if (ex.options && ex.options.length > 0) {
+        html += '<div class="options-grid ' + (ex.options.length > 2 ? 'grid-2' : '') + '">';
+        ex.options.forEach((opt, idx) => {
+          html += '<button class="option-btn" id="opt-' + idx + '" onclick="selectOption(\'' + escapeJs(opt) + '\', ' + idx + ')">';
+          html += '<span>' + escapeHtml(opt) + '</span>';
+          html += '<span style="font-size:12px;opacity:0.6;">' + (idx + 1) + '</span>';
+          html += '</button>';
+        });
+        html += '</div>';
+      }
+
+      container.innerHTML = html;
+      setTimeout(() => speakTarget(ex.audioText, 1.0), 350);
+    }
+
+    function selectOption(text, idx) {
+      if (exerciseAnswered) return;
+      playSfx('pop');
+      currentSelectedOption = text;
+      document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+      const chosen = document.getElementById('opt-' + idx);
+      if (chosen) chosen.classList.add('selected');
+      updateVerifyButtonState();
+    }
+
+    // 2. Writing Renderer
+    function renderWriting(ex, container) {
+      let html = '<h2 class="exercise-title">' + escapeHtml(ex.prompt) + '</h2>';
+      html += '<div class="prompt-box">' + escapeHtml(ex.sourceText);
+      if (ex.phoneticHint) {
+        html += '<div style="font-size:14px;color:#64748b;font-weight:normal;margin-top:4px;">Suggerimento: ' + escapeHtml(ex.phoneticHint) + '</div>';
+      }
+      html += '</div>';
+
+      html += '<div class="writing-input-wrapper">';
+      html += '<input type="text" id="writingInput" class="writing-input" placeholder="Scrivi la risposta qui..." autocomplete="off" oninput="updateVerifyButtonState()" onkeydown="handleInputKey(event)">';
+      html += '</div>';
+
+      if (LANG_CONFIG.virtualChars && LANG_CONFIG.virtualChars.length > 0) {
+        html += '<div class="virtual-keys-bar">';
+        html += '<div class="virtual-keys-header">';
+        html += '<span class="virtual-keys-title">Tastiera facilitata (' + LANG_CONFIG.name + ')</span>';
+        html += '<div class="virtual-keys-actions">';
+        html += '<button type="button" class="v-action-btn" onclick="backspaceWritingInput()">⌫ Cancella</button>';
+        html += '<button type="button" class="v-action-btn" onclick="clearWritingInput()">🗑️ Svuota</button>';
+        html += '</div></div>';
+        html += '<div class="virtual-keys">';
+        LANG_CONFIG.virtualChars.forEach(char => {
+          html += '<button type="button" class="v-key" onclick="insertVirtualChar(\'' + escapeJs(char) + '\')">' + char + '</button>';
+        });
+        html += '</div></div>';
+      }
+
+      container.innerHTML = html;
+      setTimeout(() => {
+        const inp = document.getElementById('writingInput');
+        if (inp) inp.focus();
+      }, 200);
+    }
+
+    function insertVirtualChar(char) {
+      const inp = document.getElementById('writingInput');
+      if (!inp) return;
+      playSfx('pop');
+      const start = inp.selectionStart || inp.value.length;
+      const end = inp.selectionEnd || inp.value.length;
+      inp.value = inp.value.substring(0, start) + char + inp.value.substring(end);
+      inp.selectionStart = inp.selectionEnd = start + char.length;
+      inp.focus();
+      updateVerifyButtonState();
+    }
+
+    function backspaceWritingInput() {
+      const inp = document.getElementById('writingInput');
+      if (!inp || !inp.value) return;
+      playSfx('pop');
+      inp.value = inp.value.slice(0, -1);
+      inp.focus();
+      updateVerifyButtonState();
+    }
+
+    function clearWritingInput() {
+      const inp = document.getElementById('writingInput');
+      if (!inp) return;
+      playSfx('pop');
+      inp.value = '';
+      inp.focus();
+      updateVerifyButtonState();
+    }
+
+    function handleInputKey(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleMainAction();
+      }
+    }
+
+    // 3. Drag and Drop Renderer
+    function renderDragDrop(ex, container) {
+      currentPlacedTokens = [];
+      const allTokens = [...ex.correctTokens, ...(ex.distractorTokens || [])];
+      currentWordBank = allTokens.map((w, i) => ({ id: 'token-' + i, word: w, used: false })).sort(() => Math.random() - 0.5);
+
+      let html = '<h2 class="exercise-title">' + escapeHtml(ex.prompt) + '</h2>';
+      html += '<div class="prompt-box">' + escapeHtml(ex.italianSentence);
+      if (ex.phoneticHint) {
+        html += '<div style="font-size:14px;color:#64748b;font-weight:normal;margin-top:4px;">Pronuncia: ' + escapeHtml(ex.phoneticHint) + '</div>';
+      }
+      html += '</div>';
+
+      html += '<div class="drag-header-bar">';
+      html += '<span style="font-size:13px;color:#64748b;font-weight:700;">Componi la frase:</span>';
+      html += '<button type="button" class="clear-all-tokens-btn" id="clearAllTokensBtn" onclick="clearAllPlacedTokens()" style="display:none;">🗑️ Cancella tutto</button>';
+      html += '</div>';
+
+      html += '<div id="dragSlots" class="drag-slots-area">';
+      html += '<span id="dragPlaceholder" class="drag-slots-placeholder">Tocca le parole in basso per comporre la frase nell&apos;ordine corretto...</span>';
+      html += '</div>';
+
+      html += '<div id="wordBankArea" class="word-bank">';
+      currentWordBank.forEach((item, idx) => {
+        html += '<button id="' + item.id + '" class="word-chip" onclick="handleWordBankClick(' + idx + ')">' + escapeHtml(item.word) + '</button>';
+      });
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function handleWordBankClick(idx) {
+      if (exerciseAnswered) return;
+      const item = currentWordBank[idx];
+      if (item.used) return;
+
+      playSfx('pop');
+      item.used = true;
+      currentPlacedTokens.push(item);
+      refreshDragDropUI();
+      updateVerifyButtonState();
+    }
+
+    function returnTokenToBank(placedIdx) {
+      if (exerciseAnswered) return;
+      playSfx('pop');
+      const item = currentPlacedTokens[placedIdx];
+      item.used = false;
+      currentPlacedTokens.splice(placedIdx, 1);
+      refreshDragDropUI();
+      updateVerifyButtonState();
+    }
+
+    function clearAllPlacedTokens() {
+      if (exerciseAnswered) return;
+      playSfx('pop');
+      currentPlacedTokens.forEach(t => t.used = false);
+      currentPlacedTokens = [];
+      refreshDragDropUI();
+      updateVerifyButtonState();
+    }
+
+    function refreshDragDropUI() {
+      const slots = document.getElementById('dragSlots');
+      const clearBtn = document.getElementById('clearAllTokensBtn');
+      if (!slots) return;
+
+      if (clearBtn) {
+        clearBtn.style.display = currentPlacedTokens.length > 0 ? 'inline-flex' : 'none';
+      }
+
+      if (currentPlacedTokens.length === 0) {
+        slots.innerHTML = '<span id="dragPlaceholder" class="drag-slots-placeholder">Tocca le parole in basso per comporre la frase nell&apos;ordine corretto...</span>';
+      } else {
+        slots.innerHTML = currentPlacedTokens.map((t, idx) => {
+          return '<span class="placed-chip" onclick="returnTokenToBank(' + idx + ')">' + escapeHtml(t.word) + ' <span style="font-size:12px;opacity:0.6;">✕</span></span>';
+        }).join('');
+      }
+
+      currentWordBank.forEach(item => {
+        const el = document.getElementById(item.id);
+        if (el) {
+          if (item.used) {
+            el.classList.add('used');
+          } else {
+            el.classList.remove('used');
+          }
+        }
+      });
+    }
+
+    // 4. Matching Pairs Renderer
+    function renderPairs(ex, container) {
+      currentPairSelected = null;
+      currentMatchedPairsCount = 0;
+
+      let html = '<h2 class="exercise-title">' + escapeHtml(ex.prompt) + '</h2>';
+      html += '<div class="pairs-grid">';
+
+      const leftItems = ex.pairs.map((p, i) => ({ text: p.target, id: 'l-' + i, pairId: i, phonetic: p.phonetic })).sort(() => Math.random() - 0.5);
+      const rightItems = ex.pairs.map((p, i) => ({ text: p.translation, id: 'r-' + i, pairId: i })).sort(() => Math.random() - 0.5);
+
+      html += '<div class="pair-col">';
+      leftItems.forEach(item => {
+        html += '<button id="' + item.id + '" class="pair-card" onclick="handlePairClick(\'' + item.id + '\', ' + item.pairId + ', \'left\')">';
+        html += '<span style="font-size:18px;">' + escapeHtml(item.text) + '</span>';
+        if (item.phonetic) html += '<span style="font-size:12px;color:#64748b;font-weight:normal;">' + escapeHtml(item.phonetic) + '</span>';
+        html += '</button>';
+      });
+      html += '</div>';
+
+      html += '<div class="pair-col">';
+      rightItems.forEach(item => {
+        html += '<button id="' + item.id + '" class="pair-card" onclick="handlePairClick(\'' + item.id + '\', ' + item.pairId + ', \'right\')">';
+        html += '<span style="font-size:16px;">' + escapeHtml(item.text) + '</span>';
+        html += '</button>';
+      });
+      html += '</div>';
+
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    function handlePairClick(elemId, pairId, side) {
+      if (exerciseAnswered) return;
+      playSfx('pop');
+      const elem = document.getElementById(elemId);
+      if (!elem || elem.classList.contains('matched')) return;
+
+      if (!currentPairSelected) {
+        currentPairSelected = { elemId, pairId, side };
+        elem.classList.add('selected');
+      } else {
+        if (currentPairSelected.elemId === elemId) {
+          elem.classList.remove('selected');
+          currentPairSelected = null;
+          return;
+        }
+
+        if (currentPairSelected.side === side) {
+          document.getElementById(currentPairSelected.elemId)?.classList.remove('selected');
+          currentPairSelected = { elemId, pairId, side };
+          elem.classList.add('selected');
+          return;
+        }
+
+        if (currentPairSelected.pairId === pairId) {
+          playSfx('correct');
+          elem.classList.add('matched');
+          document.getElementById(currentPairSelected.elemId)?.classList.add('matched');
+          document.getElementById(currentPairSelected.elemId)?.classList.remove('selected');
+          currentPairSelected = null;
+          currentMatchedPairsCount++;
+
+          const ex = LESSON.exercises[currentIndex];
+          if (currentMatchedPairsCount >= ex.pairs.length) {
+            handleVerification(true, 'Tutte le coppie collegate correttamente!');
+          }
+        } else {
+          playSfx('wrong');
+          const firstElem = document.getElementById(currentPairSelected.elemId);
+          elem.classList.add('shake');
+          if (firstElem) firstElem.classList.add('shake');
+
+          setTimeout(() => {
+            elem.classList.remove('shake', 'selected');
+            if (firstElem) firstElem.classList.remove('shake', 'selected');
+            currentPairSelected = null;
+          }, 450);
+        }
+      }
+    }
+
+    // Theory & Vocabulary Engine
+    function buildTheoryVocabList() {
+      theoryVocabList = [];
+      const seen = new Set();
+
+      // 1. Include flashcards explicitly defined by teacher
+      (LESSON.flashcards || []).forEach((fc, idx) => {
+        const k = fc.front.trim();
+        if (!seen.has(k)) {
+          seen.add(k);
+          theoryVocabList.push({
+            id: 'fc-' + idx,
+            target: fc.front,
+            phonetic: fc.phonetic,
+            translation: fc.back,
+            note: fc.note
+          });
+        }
+      });
+
+      // 2. Include custom vocabulary items
+      (LESSON.customVocab || []).forEach((cv, idx) => {
+        const k = cv.target.trim();
+        if (!seen.has(k)) {
+          seen.add(k);
+          theoryVocabList.push({
+            id: 'th-custom-' + idx,
+            target: cv.target,
+            phonetic: cv.phonetic,
+            translation: cv.translation,
+            note: cv.note
+          });
+        }
+      });
+
+      // 3. Include exercise vocabulary
+      (LESSON.exercises || []).forEach((ex, idx) => {
+        if (ex.type === 'listening') {
+          const k = ex.audioText.trim();
+          if (!seen.has(k)) {
+            seen.add(k);
+            theoryVocabList.push({
+              id: 'th-' + idx,
+              target: ex.audioText,
+              phonetic: ex.phonetic,
+              translation: ex.correctAnswer,
+              note: ex.explanation
+            });
+          }
+        } else if (ex.type === 'writing') {
+          const k = ex.targetAnswer.trim();
+          if (!seen.has(k)) {
+            seen.add(k);
+            theoryVocabList.push({
+              id: 'th-' + idx,
+              target: ex.targetAnswer,
+              phonetic: ex.phoneticHint,
+              translation: ex.sourceText,
+              note: ex.explanation
+            });
+          }
+        } else if (ex.type === 'drag_drop') {
+          const k = ex.correctTokens.join('');
+          if (!seen.has(k)) {
+            seen.add(k);
+            theoryVocabList.push({
+              id: 'th-' + idx,
+              target: ex.correctTokens.join(' '),
+              phonetic: ex.phoneticHint,
+              translation: ex.italianSentence,
+              note: ex.explanation || 'Frase sintattica completa.'
+            });
+          }
+        } else if (ex.type === 'pairs') {
+          ex.pairs.forEach((p, pIdx) => {
+            const k = p.target.trim();
+            if (!seen.has(k)) {
+              seen.add(k);
+              theoryVocabList.push({
+                id: 'th-' + idx + '-' + pIdx,
+                target: p.target,
+                phonetic: p.phonetic,
+                translation: p.translation
+              });
+            }
+          });
+        }
+      });
+    }
+
+    function renderTheoryVocabList() {
+      const area = document.getElementById('vocabListArea');
+      if (!area) return;
+
+      if (theoryVocabList.length === 0) {
+        area.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#94a3b8;">Nessun vocabolo disponibile in questa lezione.</div>';
+        return;
+      }
+
+      let html = '';
+
+      if (LESSON.theoryNotes) {
+        html += '<div style="grid-column: 1 / -1; background: #fffbeb; border: 2px solid #fde68a; border-radius: 18px; padding: 18px; margin-bottom: 8px;">';
+        html += '<div style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">📖 Guida Grammaticale e Note di Teoria</div>';
+        html += '<p style="font-size:14px;color:#1e293b;line-height:1.5;white-space:pre-wrap;">' + escapeHtml(LESSON.theoryNotes) + '</p>';
+        html += '</div>';
+      }
+
+      theoryVocabList.forEach((item, idx) => {
+        html += '<div id="vocabCard-' + idx + '" class="vocab-card">';
+        html += '<div class="vocab-card-top">';
+        html += '<div>';
+        html += '<div class="vocab-target">' + escapeHtml(item.target) + '</div>';
+        if (item.phonetic) {
+          html += '<div class="vocab-phonetic">[' + escapeHtml(item.phonetic) + ']</div>';
+        }
+        html += '</div>';
+
+        html += '<div class="vocab-audio-actions">';
+        html += '<button class="btn-vocab-play" onclick="speakTarget(\'' + escapeJs(item.target) + '\', 1.0)" title="Ascolta">🔊</button>';
+        html += '<button class="btn-vocab-play" onclick="speakTarget(\'' + escapeJs(item.target) + '\', 0.6)" title="Ascolta lento">🐢</button>';
+        html += '</div>';
+        html += '</div>';
+
+        html += '<div class="vocab-translation">✓ ' + escapeHtml(item.translation) + '</div>';
+        if (item.note) {
+          html += '<div class="vocab-note">💡 ' + escapeHtml(item.note) + '</div>';
+        }
+        html += '</div>';
+      });
+
+      area.innerHTML = html;
+    }
+
+    function toggleTheoryAutoplay() {
+      if (theoryAutoplayActive) {
+        stopTheoryAutoplay();
+      } else {
+        startTheoryAutoplay();
+      }
+    }
+
+    function startTheoryAutoplay() {
+      if (theoryVocabList.length === 0) return;
+      theoryAutoplayActive = true;
+      theoryAutoplayIndex = 0;
+      const btn = document.getElementById('btnAutoplay');
+      if (btn) {
+        btn.innerText = '⏸️ Pausa Ascolto';
+        btn.classList.add('playing');
+      }
+      playTheoryNext();
+    }
+
+    function stopTheoryAutoplay() {
+      theoryAutoplayActive = false;
+      if (theoryAutoplayTimer) clearTimeout(theoryAutoplayTimer);
+      const btn = document.getElementById('btnAutoplay');
+      if (btn) {
+        btn.innerText = '▶️ Riproduci Tutti i Vocaboli';
+        btn.classList.remove('playing');
+      }
+      document.querySelectorAll('.vocab-card').forEach(c => c.classList.remove('active-speaking'));
+    }
+
+    async function playTheoryNext() {
+      if (!theoryAutoplayActive) return;
+      if (theoryAutoplayIndex >= theoryVocabList.length) {
+        stopTheoryAutoplay();
+        return;
+      }
+
+      document.querySelectorAll('.vocab-card').forEach(c => c.classList.remove('active-speaking'));
+      const activeCard = document.getElementById('vocabCard-' + theoryAutoplayIndex);
+      if (activeCard) {
+        activeCard.classList.add('active-speaking');
+        activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      const item = theoryVocabList[theoryAutoplayIndex];
+      await speakTarget(item.target, 1.0);
+
+      theoryAutoplayTimer = setTimeout(() => {
+        theoryAutoplayIndex++;
+        playTheoryNext();
+      }, 1600);
+    }
+
+    // Flashcard Studio Engine
+    let currentTheorySubMode = 'vocab'; // 'vocab' | 'flashcard'
+    let currentFcIndex = 0;
+    let isFcFlipped = false;
+
+    function switchTheorySubMode(mode) {
+      currentTheorySubMode = mode;
+      const btnVocab = document.getElementById('btnSubVocab');
+      const btnFc = document.getElementById('btnSubFlashcard');
+      const viewVocab = document.getElementById('vocabSectionView');
+      const viewFc = document.getElementById('flashcardSectionView');
+
+      if (btnVocab) btnVocab.className = mode === 'vocab' ? 'sub-mode-btn active' : 'sub-mode-btn';
+      if (btnFc) btnFc.className = mode === 'flashcard' ? 'sub-mode-btn active' : 'sub-mode-btn';
+
+      if (mode === 'vocab') {
+        if (viewVocab) viewVocab.style.display = 'block';
+        if (viewFc) viewFc.style.display = 'none';
+      } else {
+        if (viewVocab) viewVocab.style.display = 'none';
+        if (viewFc) viewFc.style.display = 'block';
+        isFcFlipped = false;
+        renderFlashcard();
+      }
+    }
+
+    function renderFlashcard() {
+      const el = document.getElementById('flashcardElement');
+      const counter = document.getElementById('fcCounter');
+      const prevBtn = document.getElementById('btnFcPrev');
+      const nextBtn = document.getElementById('btnFcNext');
+
+      if (!theoryVocabList || theoryVocabList.length === 0) {
+        if (el) el.innerHTML = '<div style="color:#94a3b8;font-weight:bold;">Nessuna flashcard disponibile in questa lezione.</div>';
+        return;
+      }
+
+      if (currentFcIndex >= theoryVocabList.length) currentFcIndex = 0;
+      if (currentFcIndex < 0) currentFcIndex = 0;
+
+      const card = theoryVocabList[currentFcIndex];
+      if (counter) counter.innerText = 'Carta ' + (currentFcIndex + 1) + ' di ' + theoryVocabList.length;
+
+      if (prevBtn) prevBtn.disabled = currentFcIndex === 0;
+      if (nextBtn) nextBtn.disabled = currentFcIndex === theoryVocabList.length - 1;
+
+      if (!isFcFlipped) {
+        let h = '<div class="flashcard-flip-badge">↺ Gira</div>';
+        h += '<div style="font-size:11px;text-transform:uppercase;font-weight:800;color:#0284c7;letter-spacing:1px;margin-bottom:4px;">' + escapeHtml(LANG_CONFIG.name) + ' (' + escapeHtml(LANG_CONFIG.nativeName) + ')</div>';
+        h += '<div class="flashcard-target">' + escapeHtml(card.target) + '</div>';
+        if (card.phonetic) {
+          h += '<div class="flashcard-phonetic">[' + escapeHtml(card.phonetic) + ']</div>';
+        }
+        h += '<div style="font-size:12px;color:#94a3b8;margin-top:16px;">(Tocca la carta per scoprire la traduzione)</div>';
+        el.innerHTML = h;
+      } else {
+        let h = '<div class="flashcard-flip-badge">↺ Gira</div>';
+        h += '<div style="font-size:11px;text-transform:uppercase;font-weight:800;color:#15803d;letter-spacing:1px;margin-bottom:4px;">Traduzione Italiana</div>';
+        h += '<div class="flashcard-translation">' + escapeHtml(card.translation) + '</div>';
+        if (card.note) {
+          h += '<div class="flashcard-note">💡 ' + escapeHtml(card.note) + '</div>';
+        }
+        el.innerHTML = h;
+      }
+    }
+
+    function flipFlashcard() {
+      playSfx('pop');
+      isFcFlipped = !isFcFlipped;
+      renderFlashcard();
+    }
+
+    function prevFlashcard() {
+      if (currentFcIndex > 0) {
+        playSfx('pop');
+        currentFcIndex--;
+        isFcFlipped = false;
+        renderFlashcard();
+      }
+    }
+
+    function nextFlashcard() {
+      if (currentFcIndex < theoryVocabList.length - 1) {
+        playSfx('pop');
+        currentFcIndex++;
+        isFcFlipped = false;
+        renderFlashcard();
+      }
+    }
+
+    function playCurrentFlashcard(rate = 1.0) {
+      if (!theoryVocabList || theoryVocabList.length === 0) return;
+      playSfx('pop');
+      const card = theoryVocabList[currentFcIndex];
+      if (card) {
+        speakTarget(card.target, rate);
+      }
+    }
+
+    // Action Handlers
+    function updateVerifyButtonState() {
+      const btn = document.getElementById('mainActionButton');
+      if (exerciseAnswered) return;
+
+      const ex = LESSON.exercises[currentIndex];
+      let ready = false;
+
+      if (ex.type === 'listening') {
+        ready = !!currentSelectedOption;
+      } else if (ex.type === 'writing') {
+        const inp = document.getElementById('writingInput');
+        ready = !!(inp && inp.value.trim().length > 0);
+      } else if (ex.type === 'drag_drop') {
+        ready = currentPlacedTokens.length > 0;
+      } else if (ex.type === 'pairs') {
+        ready = false;
+      }
+
+      btn.disabled = !ready;
+    }
+
+    function handleMainAction() {
+      if (exerciseAnswered) {
+        currentIndex++;
+        loadExercise();
+        return;
+      }
+
+      const ex = LESSON.exercises[currentIndex];
+      let isCorrect = false;
+      let correctMessage = '';
+
+      if (ex.type === 'listening') {
+        isCorrect = currentSelectedOption === ex.correctAnswer;
+        correctMessage = 'Risposta corretta: ' + ex.correctAnswer;
+      } else if (ex.type === 'writing') {
+        const inp = document.getElementById('writingInput');
+        const userVal = (inp ? inp.value : '').trim().toLowerCase();
+        const mainTarget = ex.targetAnswer.trim().toLowerCase();
+        const alts = (ex.acceptedAlternates || []).map(a => a.trim().toLowerCase());
+        isCorrect = (userVal === mainTarget) || alts.includes(userVal);
+        correctMessage = 'Risposta corretta: ' + ex.targetAnswer;
+      } else if (ex.type === 'drag_drop') {
+        const constructed = currentPlacedTokens.map(t => t.word).join('');
+        const expected = ex.correctTokens.join('');
+        isCorrect = constructed === expected;
+        correctMessage = 'Ordine corretto: ' + ex.correctTokens.join(' ');
+      }
+
+      handleVerification(isCorrect, correctMessage);
+    }
+
+    function handleVerification(isCorrect, infoMsg) {
+      exerciseAnswered = true;
+      const footer = document.getElementById('appFooter');
+      const feedback = document.getElementById('feedbackContainer');
+      const actionBtn = document.getElementById('mainActionButton');
+      const ex = LESSON.exercises[currentIndex];
+
+      feedback.style.display = 'flex';
+      actionBtn.disabled = false;
+      actionBtn.innerText = 'Continua';
+
+      if (isCorrect) {
+        playSfx('correct');
+        xp += 10;
+        correctCount++;
+        footer.className = 'correct';
+        actionBtn.className = 'btn-action btn-continue';
+
+        const praises = ['Ottimo lavoro!', 'Fantastico!', 'Perfetto!', 'Bravissimo!', 'Eccellente!'];
+        const randomPraise = praises[Math.floor(Math.random() * praises.length)];
+
+        feedback.innerHTML = '<div class="feedback-icon">✓</div><div class="feedback-text"><h3>' + randomPraise + '</h3>' + (ex.explanation ? '<p>' + escapeHtml(ex.explanation) + '</p>' : '') + '</div>';
+      } else {
+        playSfx('wrong');
+        hearts = Math.max(0, hearts - 1);
+        document.getElementById('heartsCount').innerText = hearts;
+        footer.className = 'wrong';
+        actionBtn.className = 'btn-action btn-continue-wrong';
+
+        feedback.innerHTML = '<div class="feedback-icon">✕</div><div class="feedback-text"><h3>Soluzione:</h3><p>' + escapeHtml(infoMsg) + '</p>' + (ex.explanation ? '<p style="font-size:13px;margin-top:2px;">' + escapeHtml(ex.explanation) + '</p>' : '') + '</div>';
+
+        if (hearts <= 0) {
+          setTimeout(showGameOver, 600);
+        }
+      }
+    }
+
+    function resetFooter() {
+      const footer = document.getElementById('appFooter');
+      const feedback = document.getElementById('feedbackContainer');
+      const actionBtn = document.getElementById('mainActionButton');
+
+      footer.className = '';
+      feedback.style.display = 'none';
+      feedback.innerHTML = '';
+      actionBtn.innerText = 'Verifica';
+      actionBtn.className = 'btn-action';
+      actionBtn.disabled = true;
+    }
+
+    function showCompleteScreen() {
+      document.getElementById('progressBar').style.width = '100%';
+      document.getElementById('appFooter').style.display = 'none';
+      const container = document.getElementById('exerciseContainer');
+
+      const total = LESSON.exercises.length;
+      const accuracy = total > 0 ? Math.round((correctCount / total) * 100) : 100;
+
+      let html = '<div class="complete-card">';
+      html += '<div class="complete-badge">🏆</div>';
+      html += '<h1 class="complete-title">Lezione Completata!</h1>';
+      html += '<p class="complete-subtitle">' + escapeHtml(LESSON.title) + '</p>';
+
+      html += '<div class="stats-row">';
+      html += '<div class="stat-box"><div class="stat-val" style="color:var(--gold-dark);">' + xp + ' XP</div><div class="stat-lbl">Punti Guadagnati</div></div>';
+      html += '<div class="stat-box"><div class="stat-val" style="color:var(--primary);">' + accuracy + '%</div><div class="stat-lbl">Precisione</div></div>';
+      html += '</div>';
+
+      html += '<button class="btn-action" style="width:100%;margin-bottom:12px;" onclick="restartLesson()">Rifai la Lezione</button>';
+      html += '<button class="btn-action" style="width:100%;background:#0284c7;border-bottom-color:#0369a1;" onclick="switchMode(\'theory\')">📖 Rivedi Teoria & Vocaboli</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+      playSfx('correct');
+      startConfetti();
+    }
+
+    function showGameOver() {
+      const overlay = document.createElement('div');
+      overlay.className = 'gameover-overlay';
+      overlay.innerHTML = '<div class="gameover-box"><div style="font-size:56px;margin-bottom:12px;">💔</div><h2 style="font-size:24px;font-weight:800;color:#1e293b;margin-bottom:8px;">Hai esaurito le vite!</h2><p style="color:#64748b;margin-bottom:24px;">Non preoccuparti, sbagliare fa parte del percorso di apprendimento.</p><button class="btn-action" style="width:100%;" onclick="restartLesson()">Ricomincia</button></div>';
+      document.body.appendChild(overlay);
+    }
+
+    function restartLesson() {
+      window.location.reload();
+    }
+
+    function confirmExit() {
+      if (confirm('Vuoi ricominciare la lezione da capo?')) {
+        restartLesson();
+      }
+    }
+
+    // Confetti Animation Engine
+    function startConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const pieces = [];
+      const colors = ['#58cc02', '#1cb0f6', '#ffc800', '#ff4b4b', '#ff9600', '#ce82ff'];
+
+      for (let i = 0; i < 90; i++) {
+        pieces.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * -canvas.height,
+          size: Math.random() * 8 + 6,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          speedY: Math.random() * 4 + 3,
+          speedX: Math.random() * 3 - 1.5,
+          angle: Math.random() * 360,
+          spin: Math.random() * 6 - 3
+        });
+      }
+
+      let frame = 0;
+      function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pieces.forEach(p => {
+          p.y += p.speedY;
+          p.x += p.speedX;
+          p.angle += p.spin;
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.angle * Math.PI) / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.7);
+          ctx.restore();
+        });
+
+        frame++;
+        if (frame < 220) {
+          requestAnimationFrame(render);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+      render();
+    }
+
+    // Utilities
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function escapeJs(str) {
+      if (!str) return '';
+      return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"')
+        .replace(/\n/g, ' ').replace(/\r/g, '');
+    }
+  </script>
+</body>
+</html>
