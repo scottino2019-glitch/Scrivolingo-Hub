@@ -2,7 +2,7 @@ import React from 'react';
 import ScrivolingoLogo from './ScrivolingoLogo';
 
 interface ExercisesViewProps {
-  setView: (view: 'map' | 'publisher' ) => void;
+  setView: (view: 'map' | 'publisher' | 'exercises' ) => void;
 }
 
 export default function ExercisesView({ setView }: ExercisesViewProps) {
