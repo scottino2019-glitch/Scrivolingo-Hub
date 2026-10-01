@@ -44,7 +44,7 @@ export default function MapView({ setView }: MapViewProps) {
 
           {/* App 1 (Centro) */}
           <div className="flex flex-col items-center">
-            <a href="/app/animali.html">
+            <a href="/app/zh-animali.html">
               <button className="duo-btn w-20 h-20 bg-[#58CC02] border-b-4 border-[#46A302] shadow-[0_4px_0_#46A302] rounded-full flex items-center justify-center text-3xl text-white hover:brightness-105 cursor-pointer">
                🐼
               </button>
